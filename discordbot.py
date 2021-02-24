@@ -21,11 +21,12 @@ async def nagayan(ctx):
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
     if state is None: 
         return False
-
-    channel_mem = [i.name for i in state.channel.members] # VCメンバリスト取得
    
-    #各自にDM送信
-    await channel_mem[0].send(msg)
+    users = [member.display_name for member in state.channel.members]
+    
+    for user in users:
+            m =  user
+            await client.send_message(message.channel, m)
 
 bot.run(token)
 
