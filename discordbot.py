@@ -27,14 +27,14 @@ async def nagayan(ctx):
     if state is None: 
         return False
     
-    channel_id = state.channel.id
-    channel_info = client.get_channel(channel_id) 
-    
-    members = channel_info.members #finds members connected to the channel
-    for member in members:
-        await member.send('aa')
-  
+    members = state.channel.members
     await ctx.send(members)
+    
+    #memberss = channel_info.members #finds members connected to the channel
+    #for member in members:
+    #    await member.send('aa')
+  
+    #await ctx.send(members)
 
 bot.run(token)
 
