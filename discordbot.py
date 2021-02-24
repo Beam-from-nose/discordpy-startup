@@ -28,13 +28,10 @@ async def nagayan(ctx):
         return False
     
     members = state.channel.members
-    await ctx.send(members)
-    await ctx.send(members.name)
-    #memberss = channel_info.members #finds members connected to the channel
-    #for member in members:
-    #    await member.send('aa')
+    for member in members:
+        await member.send('aa')
   
-    #await ctx.send(members)
+    await ctx.send(members)
 
 bot.run(token)
 
