@@ -2,10 +2,6 @@ from discord.ext import commands
 import os
 import traceback
 
-intents = discord.Intents.default()
-intents.members = True
-client = discord.Client(intents=intents)
-
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
