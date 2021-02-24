@@ -29,7 +29,7 @@ async def nagayan(ctx):
     
     members = state.channel.members
     await ctx.send(members)
-    await ctx.send(gulid.members)
+    await ctx.send(members.name)
     #memberss = channel_info.members #finds members connected to the channel
     #for member in members:
     #    await member.send('aa')
