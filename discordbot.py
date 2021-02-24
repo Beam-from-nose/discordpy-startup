@@ -22,12 +22,12 @@ async def nagayan(ctx):
     if state is None: 
         return False
     
-    await ctx.send('hello')
+    await ctx.send(state)
 
     for member in state.channel.members:
         await member.send('aa')
   
-    await ctx.send('hello2')
+    await ctx.send(state.channel.members)
 
 bot.run(token)
 
