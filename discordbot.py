@@ -27,7 +27,7 @@ async def nagayan(ctx):
     for member in state.channel.members:
         await member.send('aa')
   
-    await ctx.send(state.channel)
+    await ctx.send(state.channel.id)
 
 bot.run(token)
 
