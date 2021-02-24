@@ -26,12 +26,8 @@ async def nagayan(ctx):
     if state is None: 
         return False
     
-    await ctx.send("yaan")
-    await ctx.send(state.channel.members)
-    #users = [i.name for i in state.channel.members]
-    
-    #for user in users:
-    #    await user.send('aaa')
-
+    for member  in state.channel.members:
+        await member.send('hello')
+  
 bot.run(token)
 
