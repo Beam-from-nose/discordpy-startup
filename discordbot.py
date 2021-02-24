@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import random
 
 import discord
 intents = discord.Intents.default()
@@ -40,9 +41,9 @@ async def nagayan(ctx):
     if state is None: 
         return False
     
-    members = state.channel.members
-    
     i = 0
+
+    members = state.channel.members
     for member in members:
         await member.send(act_list[i])
         i = i+ 1
