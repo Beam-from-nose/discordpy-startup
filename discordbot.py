@@ -20,18 +20,32 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def nagayan(ctx):
 
-    msg = 'test message'
+    act_list = [
+        '緊急ボタン禁止', 
+        '死体レポート禁止', 
+        '位置情報と監視カメラ禁止',
+        '停電とコミュサボの修理禁止'
+        '緊急タスク時、アドミン側とリアクター上部の修理禁止'
+        '緊急ボタン禁止', 
+        '死体レポート禁止', 
+        '位置情報と監視カメラ禁止',
+        '停電とコミュサボの修理禁止'
+        '緊急タスク時、アドミン側とリアクター上部の修理禁止'
+    ]
 
+    random.shuffle(act_list)
+    
     # メンバーリストを取得
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
     if state is None: 
         return False
     
     members = state.channel.members
+    
+    i = 0
     for member in members:
-        await member.send('aa')
-  
-    await ctx.send(members)
+        await member.send(act_list[i])
+        i = i+ 1
 
 bot.run(token)
 
