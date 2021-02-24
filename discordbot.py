@@ -22,7 +22,7 @@ async def nagayan(ctx):
     if state is None: 
         return False
 
-    self.channel_mem = [i.name for i in state.channel.members] # VCメンバリスト取得
+    channel_mem = [i.name for i in state.channel.members] # VCメンバリスト取得
    
     #各自にDM送信
     await random.choice(state.channel.members).send(msg)
