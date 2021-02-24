@@ -25,7 +25,7 @@ async def nagayan(ctx):
     channel_mem = [i.name for i in state.channel.members] # VCメンバリスト取得
    
     #各自にDM送信
-    await random.choice(state.channel.members).send(msg)
+    await channel_mem[0].send(msg)
 
 bot.run(token)
 
