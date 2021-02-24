@@ -26,7 +26,7 @@ async def nagayan(ctx):
     if state is None: 
         return False
    
-    print(state)
+    print(state.channel.members)
 
     #users = [i.name for i in state.channel.members]
     
