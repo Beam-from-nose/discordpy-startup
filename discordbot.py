@@ -12,10 +12,20 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+async def nagayan(ctx):
 
+    msg = 'test message'
+
+    # メンバーリストを取得
+    state = ctx.author.voice # コマンド実行者のVCステータスを取得
+    if state is None: 
+        return False
+
+    self.channel_mem = [i.name for i in state.channel.members] # VCメンバリスト取得
+   
+    #各自にDM送信
+    await random.choice(state.channel.members).send(msg)
 
 bot.run(token)
+
