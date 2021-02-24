@@ -25,8 +25,8 @@ async def nagayan(ctx):
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
     if state is None: 
         return False
-   
-    print(state.channel.members)
+   　
+    await ctx.send("yaan")
 　　await ctx.send(state.channel.members)
     #users = [i.name for i in state.channel.members]
     
