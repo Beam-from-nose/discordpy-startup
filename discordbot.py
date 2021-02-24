@@ -27,7 +27,7 @@ async def nagayan(ctx):
         return False
    
     print(state.channel.members)
-
+　　await ctx.send(state.channel.members)
     #users = [i.name for i in state.channel.members]
     
     #for user in users:
