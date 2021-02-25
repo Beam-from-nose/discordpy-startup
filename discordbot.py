@@ -88,21 +88,6 @@ async def kj(ctx,*imposter_no):
         else:
             two_mode = False
             break
-    
-    m = 0
-    for member in members:
-        if role_list[m] == 1:
-            await member.send('あなたは狂人です')
 
-        if two_mode == True:
-            if m == imposter_no[0] or m == imposter_no[1]:
-                if kill_flag == True:
-                    await member.send('あなたはキルできるインポスター')
-                    kill_flag = False 
-                else:
-                    await member.send('あなたはキルできないインポスター')       
-                    kill_flag = True 
-
-        m = m + 1
 
 bot.run(token)
