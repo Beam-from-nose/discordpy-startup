@@ -55,14 +55,14 @@ async def kj(ctx,imno1,imno2=None):
     #入力値チェック
     if len(imno1) != 1:
         await ctx.send('1つ目の入力値が不正です')
-        break;
+        return False
     if imno2 != None:
         if len(imno2) != 1:
             await ctx.send('2つ目の入力値が不正です')
-            break;
+            return False
         if int(imno1) == int(imno2):
             await ctx.send('同じ番号が指定されています')
-            break;
+            return False
     
     # メンバーリストを取得
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
