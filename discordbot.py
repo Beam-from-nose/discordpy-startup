@@ -103,7 +103,8 @@ async def kj(ctx,*imposter_no):
     m = 0
     for member in members:
         if role_list[m] == 1:
-            await member.send('あなたは狂人です')
+            #await member.send('あなたは狂人です')
+            await ctx.send(あなたは狂人です)
 
         elif two_mode == True:
             if m == imposter_no[0] or m == imposter_no[1]:
