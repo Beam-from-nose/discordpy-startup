@@ -75,7 +75,6 @@ async def kj(ctx,imno1,imno2=None):
         #インポスター1人
         if imno2 == None:
             two_mode = False
- 
             break
    
         #インポスター2人
@@ -85,9 +84,7 @@ async def kj(ctx,imno1,imno2=None):
                 kill_flag = True 
             else:
                 kill_flag = False
-              
             break
-        
 
     m = 0
     for member in members:
