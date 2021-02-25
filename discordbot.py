@@ -62,32 +62,7 @@ async def kj(ctx,*imposter_no):
         
     members_count = len(members) # 人数取得
         
-    #人数分の役職
-    role_list = []
-    for i in range(members_count):
-        
-        if i == 0:
-            role_list.append(1)
-        else:
-            role_list.append(0)
-     
-    while True:
-        random.shuffle(role_list)
-        
-        #インポスター2人
-        if len(imposter_no) = 2:
-            two_mode = True
-            if random.random() >= 0.5:
-                kill_flag = True 
-            else:
-                kill_flag = False
-              
-            break
-        
-        #インポスター1人
-        else:
-            two_mode = False
-            break
+
 
 
 bot.run(token)
