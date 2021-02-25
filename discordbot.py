@@ -58,9 +58,22 @@ async def kj(ctx,*imposter_no):
     if state is None: 
         return False
     
-    members = state.channel.members
+    #members = state.channel.members
+     members = [
+        'A', 
+        'B', 
+        'C',
+        'D',
+        'E',
+        'F', 
+        'G', 
+        'H',
+        'I',
+        'J'
+    ]
+        
     members_count = len(members) # 人数取得
-    
+        
     #人数分の役職
     role_list = []
     for i in range(members_count):
@@ -91,15 +104,23 @@ async def kj(ctx,*imposter_no):
     m = 0
     for member in members:
         if role_list[m] == 1:
-            await member.send('あなたは狂人です')
-        
+            #await member.send('あなたは狂人です')
+            await ctx.send(あなたは狂人です)
+            await ctx.send(member)
+
         if two_mode == True:
             if m == imposter_no[0] or m == imposter_no[1]:
                 if(kill_flag == True):
-                    await member.send('あなたはキルできるインポスター')
+                    #await member.send('あなたはキルできるインポスター')
+                    await ctx.send(あなたはキルできるインポスター)
+                    await ctx.send(member)
+                    
                     kill_flag = False 
                 else:
-                    await member.send('あなたはキルできないインポスター')
+                    #await member.send('あなたはキルできないインポスター')
+                    await ctx.send(あなたはキルできないインポスター)
+                    await ctx.send(member)            
+                    
                     kill_flag = True 
 
         m = m + 1
