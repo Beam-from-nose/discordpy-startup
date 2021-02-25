@@ -62,6 +62,15 @@ async def kj(ctx,*imposter_no):
         
     members_count = len(members) # 人数取得
         
+    #人数分の役職
+    role_list = []
+    for i in range(members_count):
+        
+        if i == 0:
+            role_list.append(1)
+        else:
+            role_list.append(0)
+     
 
 
 
