@@ -73,7 +73,7 @@ async def kj(ctx,imno1,imno2=None):
         random.shuffle(role_list)
         
         #インポスター1人
-        if imno2== None:
+        if imno2 == None:
             two_mode = False
  
             break
