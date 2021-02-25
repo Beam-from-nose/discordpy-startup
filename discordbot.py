@@ -107,7 +107,7 @@ async def kj(ctx,imno1,imno2=None):
             await ctx.send('あなたは狂人です')
         else:
             if two_mode == True:
-                if m == imno1 or m == imno2:
+                if m == int(imno1) or m == int(imno2):
                     if kill_flag == True:
                         #await member.send('あなたはキルできるインポスター')
                         await ctx.send('あなたはキルできるインポスター')
