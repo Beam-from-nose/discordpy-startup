@@ -50,7 +50,7 @@ async def limit_act(ctx):
 
 
 @bot.command()
-async def kj(ctx,*imposter_no):
+async def kj(ctx,imno1,imno2=None):
     
     # メンバーリストを取得
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
@@ -58,7 +58,7 @@ async def kj(ctx,*imposter_no):
         return False
     
    # members = state.channel.members  
-        members = [
+     members = [
         '1', 
         '2', 
         '3',
@@ -84,8 +84,14 @@ async def kj(ctx,*imposter_no):
     while True:
         random.shuffle(role_list)
         
+        #インポスター1人
+        if imno2== None:
+            two_mode = False
+ 
+            break
+   
         #インポスター2人
-        if len(imposter_no) == 2:
+        else:
             two_mode = True
             if random.random() >= 0.5:
                 kill_flag = True 
@@ -94,10 +100,6 @@ async def kj(ctx,*imposter_no):
               
             break
         
-        #インポスター1人
-        else:
-            two_mode = False
-            break
 
     m = 0
     for member in members:
@@ -106,11 +108,10 @@ async def kj(ctx,*imposter_no):
             await ctx.send(あなたは狂人です)
 
         elif two_mode == True:
-            if m == imposter_no[0] or m == imposter_no[1]:
+            if m == imno1 or m == imno2:
                 if kill_flag == True:
                     #await member.send('あなたはキルできるインポスター')
                     await ctx.send(あなたはキルできるインポスター)
-
                     kill_flag = False 
                 else:
                     #await member.send('あなたはキルできないインポスター')       
