@@ -48,7 +48,6 @@ async def limit_act(ctx):
         await member.send(act_list[i])
         i = i + 1
 
-bot.run(token)
 
 @bot.command()
 async def kj(ctx,*imposter_no):
