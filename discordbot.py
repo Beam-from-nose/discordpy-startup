@@ -19,7 +19,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 @bot.command()
-async def nagayan(ctx):
+async def limit_act(ctx):
 
     act_list = [
         '緊急ボタン禁止', 
@@ -50,3 +50,31 @@ async def nagayan(ctx):
 
 bot.run(token)
 
+@bot.command()
+async def kyojin(ctx,*imposter_no):
+    
+    # メンバーリストを取得
+    state = ctx.author.voice # コマンド実行者のVCステータスを取得
+    if state is None: 
+        return False
+    
+    members = state.channel.members
+    members_count = len(members) # 人数取得
+
+    #人数分の役職
+    role_list = []
+    for i in range(members_count):
+        
+        if i == 0:
+            role_list.append(1)
+        else:
+            role_list.append(0)
+     
+    
+    for member in members:
+        if role_list[m] == 1:
+            await member.send('あなたは狂人です')
+
+        m = m + 1
+
+bot.run(token)
