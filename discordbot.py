@@ -51,7 +51,7 @@ async def limit_act(ctx):
 bot.run(token)
 
 @bot.command()
-async def kyojin(ctx,*imposter_no):
+async def kj(ctx,*imposter_no):
     
     # メンバーリストを取得
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
@@ -60,7 +60,7 @@ async def kyojin(ctx,*imposter_no):
     
     members = state.channel.members
     members_count = len(members) # 人数取得
-
+    
     #人数分の役職
     role_list = []
     for i in range(members_count):
@@ -70,10 +70,37 @@ async def kyojin(ctx,*imposter_no):
         else:
             role_list.append(0)
      
+    while True:
+        random.shuffle(role_list)
+        
+        #インポスター2人
+        if len(imposter_no) = 2:
+            two_mode = True
+            if random.random() >= 0.5:
+                kill_flag = True 
+            else:
+                kill_flag = False
+              
+            break
+        
+        #インポスター1人
+        else:
+            two_mode = False
+            break
     
+    m = 0
     for member in members:
         if role_list[m] == 1:
             await member.send('あなたは狂人です')
+        
+        if two_mode == True:
+            if m == imposter_no[0] or m == imposter_no[1]:
+                if(kill_flag == True):
+                    await member.send('あなたはキルできるインポスター')
+                    kill_flag = False 
+                else:
+                    await member.send('あなたはキルできないインポスター')
+                    kill_flag = True 
 
         m = m + 1
 
