@@ -46,7 +46,7 @@ async def limit_act(ctx):
     members = state.channel.members
     for member in members:
         await member.send(act_list[i])
-        i = i+ 1
+        i = i + 1
 
 bot.run(token)
 
