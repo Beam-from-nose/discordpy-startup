@@ -105,18 +105,23 @@ async def kj(ctx,imno1,imno2=None):
         if role_list[m] == 1:
             #await member.send('あなたは狂人です')
             await ctx.send('あなたは狂人です')
-        elif two_mode == True:
-            if m == imno1 or m == imno2:
-                if kill_flag == True:
-                    #await member.send('あなたはキルできるインポスター')
-                    await ctx.send('あなたはキルできるインポスター')
-                    kill_flag = False 
-                else:
-                    #await member.send('あなたはキルできないインポスター')
-                    await ctx.send('あなたはキルできないインポスター')
-                    kill_flag = True 
         else:
-            await ctx.send(member)
+            if two_mode == True:
+                if m == imno1 or m == imno2:
+                    if kill_flag == True:
+                        #await member.send('あなたはキルできるインポスター')
+                        await ctx.send('あなたはキルできるインポスター')
+                        kill_flag = False 
+                    else:
+                        #await member.send('あなたはキルできないインポスター')
+                        await ctx.send('あなたはキルできないインポスター')
+                        kill_flag = True 
+                else:
+                    #await member.send('あなたはクルー')
+                    await ctx.send('あなたはクルー')
+            else:
+                #await member.send('あなたはクルー')
+                await ctx.send('あなたはクルー')
 
         m = m + 1
 
