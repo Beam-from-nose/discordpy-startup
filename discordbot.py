@@ -52,6 +52,14 @@ async def limit_act(ctx):
 @bot.command()
 async def kj(ctx,imno1,imno2=None):
     
+    #入力値チェック
+    if len(imno1) == 2:
+        await ctx.send('1つ目の入力値が不正です')
+    if len(imno2) == 2:
+        await ctx.send('2つ目の入力値が不正です')
+    if int(imno1) == int(imno2):
+        await ctx.send('同じ番号が指定されています')
+        
     # メンバーリストを取得
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
     if state is None: 
