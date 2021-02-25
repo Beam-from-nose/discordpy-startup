@@ -57,7 +57,19 @@ async def kj(ctx,imno1,imno2=None):
     if state is None: 
         return False
     
-    members = state.channel.members  
+    #members = state.channel.members  
+    members = [
+        '1', 
+        '2', 
+        '3',
+        '4',
+        '5',
+        '6', 
+        '7', 
+        '8',
+        '9',
+        '10'
+    ]
     members_count = len(members) # 人数取得
         
     #人数分の役職
