@@ -74,17 +74,19 @@ async def kj(ctx,imno1,imno2=None):
         
         #インポスター1人
         if imno2 == None:
-            two_mode = False
-            break
+            if role_list[imno1] == 0:
+                two_mode = False
+                break
    
         #インポスター2人
         else:
-            two_mode = True
-            if random.random() >= 0.5:
-                kill_flag = True 
-            else:
-                kill_flag = False
-            break
+            if role_list[imno1] == 0 and role_list[imno1] == 0:
+                two_mode = True
+                if random.random() >= 0.5:
+                    kill_flag = True 
+                else:
+                    kill_flag = False
+                break
 
     m = 0
     for member in members:
