@@ -147,11 +147,11 @@ async def test(ctx):
         return False
     
     members = state.channel.members
-    for member in members:
-        if member['nick'] == None:
-            member['nick'] = member['name']
+    #for member in members:
+    #    if member['nick'] == None:
+    #        member['nick'] = member['name']
     
-    sorted(members['nick'])
+    sorted(members['discriminator'])
         
     for member in members:
         await ctx.send(member)
