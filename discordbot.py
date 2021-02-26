@@ -151,7 +151,7 @@ async def test(ctx):
 
     #ニックネーム順に変更
     for member in members:
-        if member.nick == None
+        if member.nick == None:
             member.nick = member.name
         
     for member in members:
