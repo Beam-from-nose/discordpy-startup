@@ -147,12 +147,8 @@ async def test(ctx):
         return False
     
     members = state.channel.members
-    await ctx.send(members)
 
-    #ニックネーム順に変更
-    for member in members:
-        if member.nick == None:
-            member.nick = member.name
+    sorted(members.display_name)
         
     for member in members:
         await ctx.send(member)
