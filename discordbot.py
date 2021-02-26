@@ -19,7 +19,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 @bot.command()
-async def limit_act(ctx):
+async def act(ctx):
 
     act_list = [
         '緊急ボタン禁止', 
