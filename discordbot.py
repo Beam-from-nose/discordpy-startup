@@ -73,7 +73,7 @@ async def kj(ctx,imno1,imno2=None):
     members_count = len(members) # 人数取得
     
     #人数チェック
-    if members_count > 2:
+    if members_count < 3:
         await ctx.send('ボイスチャンネルの人数が少なすぎます')
         return False
     
