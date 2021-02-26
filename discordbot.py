@@ -139,7 +139,6 @@ async def kj(ctx,imno1,imno2=None):
 
 @bot.command()
 async def show(ctx):
-
     
     # メンバーリストを取得
     state = ctx.author.voice # コマンド実行者のVCステータスを取得
