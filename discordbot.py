@@ -147,6 +147,8 @@ async def test(ctx):
         return False
     
     members = state.channel.members
+    await ctx.send(members)
+
     for member in members:
         await ctx.send(member)
 
