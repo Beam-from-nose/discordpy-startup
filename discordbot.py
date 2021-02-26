@@ -147,6 +147,7 @@ async def show(ctx):
     
     members = state.channel.members
     i = 0
+    messages = []
     for member in members:
         messages[i] = str(i) + '-' + member.name
         i = i + 1
