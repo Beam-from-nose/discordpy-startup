@@ -149,7 +149,7 @@ async def show(ctx):
     i = 0
     messages = []
     for member in members:
-        messages[i] = str(i) + '-' + member.name
+        messages.append(str(i) + '-' + member.name)
         i = i + 1
     
     message = '\n'.join(messages)
