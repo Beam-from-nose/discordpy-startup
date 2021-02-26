@@ -137,4 +137,17 @@ async def kj(ctx,imno1,imno2=None):
 
         m = m + 1
 
+@bot.command()
+async def test(ctx):
+
+    
+    # メンバーリストを取得
+    state = ctx.author.voice # コマンド実行者のVCステータスを取得
+    if state is None: 
+        return False
+    
+    members = state.channel.members
+    for member in members:
+        await ctx.send(member)
+
 bot.run(token)
