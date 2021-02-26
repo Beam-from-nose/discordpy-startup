@@ -138,7 +138,7 @@ async def kj(ctx,imno1,imno2=None):
         m = m + 1
 
 @bot.command()
-async def test(ctx):
+async def show(ctx):
 
     
     # メンバーリストを取得
@@ -147,15 +147,8 @@ async def test(ctx):
         return False
     
     members = state.channel.members
-    #for member in members:
-    #    if member['nick'] == None:
-    #        member[] = member['name']
-    #    else:
-    #        member[] == member['name']:
-    #
-    members = sorted(members, key=lambda x: x['discriminator'])
-        
+    i = 0:
     for member in members:
-        await ctx.send(member)
+        await ctx.send(i + '-' + member)
 
 bot.run(token)
