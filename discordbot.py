@@ -151,7 +151,7 @@ async def test(ctx):
     #    if member['nick'] == None:
     #        member['nick'] = member['name']
     
-    sorted(members['discriminator'])
+    sorted(members.discriminator)
         
     for member in members:
         await ctx.send(member)
