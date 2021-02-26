@@ -148,7 +148,7 @@ async def test(ctx):
     
     members = state.channel.members
     for member in members:
-        if member['nick'] = None:
+        if member['nick'] == None:
             member['nick'] = member['name']
     
     sorted(members['nick'])
