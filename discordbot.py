@@ -148,7 +148,10 @@ async def show(ctx):
     members = state.channel.members
     i = 0
     for member in members:
-        await ctx.send(str(i) + '-' + member.name)
+        array[i] = str(i) + '-' + member.name
         i = i + 1
+    
+    message = '\n'.join(array)
+    await ctx.send(message)
 
 bot.run(token)
