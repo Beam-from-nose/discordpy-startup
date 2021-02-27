@@ -72,7 +72,9 @@ async def show(ctx):
 	
 	message = '\n'.join(messages)
 	send_message = await ctx.send(message)
-
+	add_reactions(send_message)
+	
+def add_reactions(message)
 	list = [
 		'\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}', 
 		'\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
@@ -89,7 +91,7 @@ async def show(ctx):
 	]
 	
 	for a in list:
-		await send_message.add_reaction(a)
+		await message.add_reaction(a)
 	
 
 @bot.event
@@ -188,6 +190,8 @@ async def on_reaction_add(reaction, user):
 					#await ctx.send('あなたはクルー')
 
 			m = m + 1
+		#リアクション初期化
+		await message.clear_reactions()
 
 @bot.command()
 async def kj(ctx,imno1,imno2=None):
