@@ -86,7 +86,7 @@ async def show(ctx):
 		'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
 	]
 	for a in list:
-		await message.add_reaction(a)
+		await send_message.add_reaction(a)
 	
 
 @bot.event
@@ -124,7 +124,7 @@ async def on_reaction_add(reaction, user):
 		state = user.voice # コマンド実行者のVCステータスを取得
 		if state is None: 
 			return False
-
+'''
 		members = state.channel.members
 		members_count = len(members) # 人数取得
 
@@ -184,7 +184,7 @@ async def on_reaction_add(reaction, user):
 					await member.send('あなたはクルー')
 					#await ctx.send('あなたはクルー')
 
-			m = m + 1
+			m = m + 1'''
 		#リアクション初期化
 		await message.clear_reactions()
 		list = [
@@ -204,6 +204,10 @@ async def on_reaction_add(reaction, user):
 		for a in list:
 			await message.add_reaction(a)
 
+			
+			
+			
+			
 @bot.command()
 async def kj(ctx,imno1,imno2=None):
 	
