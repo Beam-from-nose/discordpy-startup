@@ -49,20 +49,19 @@ async def act(ctx):
 		i = i + 1
 
 
-@bot.command()
-async def kj(ctx,imno1,imno2=None):
+def kj(ctx,imno1,imno2=None):
 	
 	#入力値チェック
-	if len(imno1) != 1:
-		await ctx.send('1つ目の入力値が不正です')
-		return False
-	if imno2 != None:
-		if len(imno2) != 1:
-			await ctx.send('2つ目の入力値が不正です')
-			return False
-		if int(imno1) == int(imno2):
-			await ctx.send('同じ番号が指定されています')
-			return False
+	#if len(imno1) != 1:
+	#	await ctx.send('1つ目の入力値が不正です')
+	#	return False
+	#if imno2 != None:
+	#	if len(imno2) != 1:
+	#		await ctx.send('2つ目の入力値が不正です')
+	#		return False
+	#	if int(imno1) == int(imno2):
+	#		await ctx.send('同じ番号が指定されています')
+	#		return False
 	
 	# メンバーリストを取得
 	state = ctx.author.voice # コマンド実行者のVCステータスを取得
@@ -108,8 +107,8 @@ async def kj(ctx,imno1,imno2=None):
 	m = 0
 	for member in members:
 		if role_list[m] == 1:
-			#await member.send('あなたは狂人')
-			await ctx.send('あなたは狂人')
+			await member.send('あなたは狂人')
+			#await ctx.send('あなたは狂人')
 		else:
 			if two_mode == True:
 				if m == int(imno1) or m == int(imno2):
