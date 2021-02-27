@@ -97,7 +97,6 @@ async def show(ctx):
 
 @bot.event
 async def on_reaction_add(reaction, user):
-	print(reaction.emoji)	
 
 	#スタート以外はスルー
 	if reaction.emoji != "▶" or reaction.emoji != "#⃣":
@@ -108,7 +107,7 @@ async def on_reaction_add(reaction, user):
 	if user.bot == False and message.author.id == 814061487647490118 :
 		
 		# シャープなら投稿を消して終了
-		if reaction.emoji != "#⃣":
+		if reaction.emoji == "#⃣":
 			await message.delete
 			return Flase
 
