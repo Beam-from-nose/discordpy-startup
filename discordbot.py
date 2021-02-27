@@ -176,16 +176,11 @@ async def show2(ctx):
     send_message = await ctx.send(message)
 
     list = [
-        ':zelo:', 
-        ':one:', 
-        ':two:',
-        ':three:',
-        ':four:',
-        ':five:', 
-        ':six:', 
-        ':seven:',
-        ':eight:',
-        ':nine:'
+        '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
+        '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
+        '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}',
+        '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}',
+        '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}',
     ]
     
     for a in list:
