@@ -71,6 +71,9 @@ async def show(ctx):
 		else:
 			messages.append(str(i) + '-' + member.nick)		 
 		i = i + 1
+		
+	if range(messages) == 0
+		return False
 	
 	message = '\n'.join(messages)
 	send_message = await ctx.send(message)
