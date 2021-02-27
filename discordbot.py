@@ -189,6 +189,6 @@ async def show2(ctx):
     ]
     
     for a in list:
-        await send_message.add_reaction("a")
+        await send_message.add_reaction(a)
     
 bot.run(token)
