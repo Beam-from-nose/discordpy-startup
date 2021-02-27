@@ -193,13 +193,14 @@ async def show2(ctx):
     for a in list:
         await send_message.add_reaction(a)
     
-bot.run(token)
 
-@client.event
+@bot.event
 async def on_reaction_add(reaction, user):
-    # author: リアクションがついたメッセージを書いた人
-    author = reaction.message.author
-    await client.send_message(author, f"{user} さんがリアクションをしました")
+    message = reaction.message
+    emoji = reaction.emoji.id
+
+    if emoji == '\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+        message.delete
 
 
-client.run(token)
+bot.run(token)
