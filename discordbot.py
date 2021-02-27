@@ -108,7 +108,7 @@ async def on_reaction_add(reaction, user):
 		
 		# シャープなら投稿を消して終了
 		if reaction.emoji == "#⃣":
-			await message.delete
+			await message.delete()
 			return False
 
 		#投稿のリアクション状況を取得
