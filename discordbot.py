@@ -124,67 +124,10 @@ async def on_reaction_add(reaction, user):
 		state = user.voice # コマンド実行者のVCステータスを取得
 		if state is None: 
 			return False
-'''
+
 		members = state.channel.members
 		members_count = len(members) # 人数取得
 
-		#人数チェック
-		if members_count < 3:
-			#await ctx.send('ボイスチャンネルの人数が少なすぎます')
-			return False
-
-		#人数分の役職
-		role_list = []
-		for i in range(members_count):
-
-			if i == 0:
-				role_list.append(1)
-			else:
-				role_list.append(0)
-
-		while True:
-			random.shuffle(role_list)
-
-			#インポスター1人
-			if imno2 == None:
-				if role_list[int(imno1)] == 0:
-					two_mode = False
-					break
-
-			#インポスター2人
-			else:
-				if role_list[int(imno1)] == 0 and role_list[int(imno2)] == 0:
-					two_mode = True
-					if random.random() >= 0.5:
-						kill_flag = True 
-					else:
-						kill_flag = False
-					break
-
-		m = 0
-		for member in members:
-			if role_list[m] == 1:
-				await member.send('あなたは狂人')
-				#await ctx.send('あなたは狂人')
-			else:
-				if two_mode == True:
-					if m == int(imno1) or m == int(imno2):
-						if kill_flag == True:
-							await member.send('あなたはキルできるインポスター')
-							#await ctx.send('あなたはキルできるインポスター')
-							kill_flag = False 
-						else:
-							await member.send('あなたはキルできないインポスター')
-							#await ctx.send('あなたはキルできないインポスター')
-							kill_flag = True 
-					else:
-						await member.send('あなたはクルー')
-						#await ctx.send('あなたはクルー')
-				else:
-					await member.send('あなたはクルー')
-					#await ctx.send('あなたはクルー')
-
-			m = m + 1'''
 		#リアクション初期化
 		await message.clear_reactions()
 		list = [
