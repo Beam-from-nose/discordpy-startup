@@ -63,6 +63,9 @@ async def show(ctx):
 	i = 0
 	messages = []
 	for member in members:
+		if member.author.voice.mute == True:
+			continue
+			
 		if member.nick == None:
 			messages.append(str(i) + '-' + member.name)
 		else:
@@ -126,9 +129,14 @@ async def on_reaction_add(reaction, user):
 			return False
 
 		members = state.channel.members
-		members_count = len(members) # 人数取得
-
-				#人数チェック
+		members_count = 0
+		for mem in members:
+			if mem.author.voice.mute == True:
+				continue
+			
+			members_count = members_count + 1
+		
+		#人数チェック
 		if members_count < 3:
 			#await ctx.send('ボイスチャンネルの人数が少なすぎます')
 			return False
@@ -163,6 +171,10 @@ async def on_reaction_add(reaction, user):
 
 		m = 0
 		for member in members:
+			
+			if member.author.voice.mute == True:
+				continue	
+			
 			if role_list[m] == 1:
 				await member.send('あなたは狂人')
 				#await ctx.send('あなたは狂人')
