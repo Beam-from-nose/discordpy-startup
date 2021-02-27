@@ -204,13 +204,15 @@ async def on_reaction_add(reaction, user):
 	message = reaction.message
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
-			
+
+		print(user)
+
 		#投稿のリアクション状況を取得
 		i = 0;
 		impo1 = None
 		impo2 = None
 		
-		for r in range(message.reactions):
+		for r in message.reactions:
 		
 			if r.count == 2:
 				if impo1 == None:
