@@ -200,7 +200,28 @@ async def on_reaction_add(reaction, user):
     emoji = reaction.emoji
 
     await message.channel.send(emoji)
-
+	print("reaction has been added")
+	print(reaction)
+	print("message")
+	print(reaction.message)
+	print("emoji")
+	print(reaction.emoji)
+	print("reaction-channel")
+	print(reaction.message.channel)
+	print("reaction-channel-id")
+	print(reaction.message.channel.id)
+	print("message-content")
+	print(reaction.message.content)
+	print("message-author")
+	print(reaction.message.author.id)
+	print("reaction-by")
+	print(user.id)
+	print("emoji-hash")
+	print(hash(reaction.emoji))
+	print("emoji-name")
+	print(reaction.emoji.name)
+	print("emoji-id")
+	print(reaction.emoji.id)
 
 
 bot.run(token)
