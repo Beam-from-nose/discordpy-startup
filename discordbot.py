@@ -221,7 +221,7 @@ async def on_reaction_add(reaction, user):
 					impo2 = i
 			i = i + 1
 			if i == 10:
-				bareak
+				break
 
 		#振り分けの関数
 		kj(user,impo1,impo2)
