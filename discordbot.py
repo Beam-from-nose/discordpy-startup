@@ -49,7 +49,7 @@ async def act(ctx):
 		i = i + 1
 
 
-def kj(ctx,imno1,imno2=None):
+async def kj(ctx,imno1,imno2=None):
 	
 	#入力値チェック
 	#if len(imno1) != 1:
