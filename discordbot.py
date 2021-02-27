@@ -176,7 +176,7 @@ async def show2(ctx):
     send_message = await ctx.send(message)
 
     list = [
-        '\N{DIGIT ZELO}\N{COMBINING ENCLOSING KEYCAP}', 
+        '\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}', 
         '\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
         '\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}',
         '\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}',
