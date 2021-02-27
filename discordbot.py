@@ -187,7 +187,7 @@ async def show2(ctx):
         '\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
         '\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
         '\N{BLACK RIGHT-POINTING TRIANGLE}',
-        '\N{BLACK SQUARE}'
+        '\N{DIGIT HASH}\N{COMBINING ENCLOSING KEYCAP}'
     ]
     
     for a in list:
