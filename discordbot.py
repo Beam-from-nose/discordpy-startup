@@ -196,18 +196,18 @@ async def show2(ctx):
 
 @bot.event
 async def on_reaction_add(reaction, user):
-	message = reaction.message
-	emoji = reaction.emoji
-
-	if reaction.emoji == "▶":
-		await message.channel.send('nin')
-
+	
+	#スタート以外はスルー
+	if reaction.emoji != "▶":
+		return False
 		
-	print(message)
-	print(reaction)
+	message = reaction.message
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
 	
 		await message.channel.send('nin')
+		
+		#投稿のリアクション状況を取得
+		print(message.reactions)
 
 bot.run(token)
