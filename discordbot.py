@@ -204,10 +204,25 @@ async def on_reaction_add(reaction, user):
 	message = reaction.message
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
-	
-		await message.channel.send('nin')
-		
+			
 		#投稿のリアクション状況を取得
-		print(message.reactions)
+		i = 0;
+		impo1 = None
+		impo2 = None
+		
+		for r in range(message.reactions):
+		
+			if r.count == 2:
+				if impo1 == None:
+					impo1 = i
+				else:
+					impo2 = i
+			i = i + 1
+			if i == 10:
+				bareak
 
+		#振り分けの関数
+		kj(user,impo1,impo2)
+		
+		
 bot.run(token)
