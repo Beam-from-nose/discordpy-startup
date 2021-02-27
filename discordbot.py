@@ -201,7 +201,7 @@ async def on_reaction_add(reaction, user):
 
 	if user.bot == False:
 		await message.channel.send('推したのは人間')
-	if reaction.author.bot == yes:
+	if reaction.author.bot == True:
 		await message.channel.send('推されたのはbot')
 	await message.channel.send(emoji)
 
