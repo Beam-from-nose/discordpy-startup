@@ -91,7 +91,7 @@ def add_reactions(message):
 	]
 	
 	for a in list:
-		await message.add_reaction(a)
+		message.add_reaction(a)
 	
 
 @bot.event
