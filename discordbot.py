@@ -198,9 +198,11 @@ async def show2(ctx):
 async def on_reaction_add(reaction, user):
 	message = reaction.message
 	emoji = reaction.emoji
+
 	if user.bot == False:
 		await message.channel.send('推したのは人間')
-
+	if reaction.author.bot == yes:
+		await message.channel.send('推されたのはbot')
 	await message.channel.send(emoji)
 
 bot.run(token)
