@@ -199,6 +199,10 @@ async def on_reaction_add(reaction, user):
 	message = reaction.message
 	emoji = reaction.emoji
 
+	if reaction.emoji == "▶":
+		await message.channel.send('nin')
+
+		
 	print(message)
 	print(reaction)
 	#押したのが人間かつ押されたのがながやbot
