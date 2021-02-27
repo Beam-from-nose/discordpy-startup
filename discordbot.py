@@ -199,7 +199,7 @@ async def on_reaction_add(reaction, user):
     message = reaction.message
     emoji = reaction.emoji.id
 
-    if emoji == '\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+    if emoji == '\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}':
         message.delete
 
 
