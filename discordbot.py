@@ -200,11 +200,10 @@ async def on_reaction_add(reaction, user):
 	emoji = reaction.emoji
 
 	print(message)
-	print(emoji)
+	print(reaction)
 	#押したのが人間かつ押されたのがながやbot
-	if user.bot == False and message.author.id == 699081805113982997:
+	if user.bot == False and message.author.id == 814061487647490118 :
 	
 		await message.channel.send(emoji)
-		await message.channel.send(emoji.id)
 
 bot.run(token)
