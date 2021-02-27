@@ -195,7 +195,7 @@ async def show2(ctx):
     
 
 @bot.event
-async def on_raw_reaction_add(reaction, user):
+async def on_reaction_add(reaction, user):
 	message = reaction.message
 	emoji = reaction.emoji
 
