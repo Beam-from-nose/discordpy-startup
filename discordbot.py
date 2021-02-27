@@ -224,7 +224,7 @@ async def on_reaction_add(reaction, user):
 
 		#振り分けの関数
 		# メンバーリストを取得
-		state = user.author.voice # コマンド実行者のVCステータスを取得
+		state = user.voice # コマンド実行者のVCステータスを取得
 		if state is None: 
 			return False
 
