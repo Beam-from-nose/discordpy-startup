@@ -195,33 +195,33 @@ async def show2(ctx):
     
 
 @bot.event
-async def on_reaction_add(reaction, user):
+async def on_raw_reaction_add(reaction, user):
     message = reaction.message
     emoji = reaction.emoji
 
     await message.channel.send(emoji)
-	print("reaction has been added")
-	print(reaction)
-	print("message")
-	print(reaction.message)
-	print("emoji")
-	print(reaction.emoji)
-	print("reaction-channel")
-	print(reaction.message.channel)
-	print("reaction-channel-id")
-	print(reaction.message.channel.id)
-	print("message-content")
-	print(reaction.message.content)
-	print("message-author")
-	print(reaction.message.author.id)
-	print("reaction-by")
-	print(user.id)
-	print("emoji-hash")
-	print(hash(reaction.emoji))
-	print("emoji-name")
-	print(reaction.emoji.name)
-	print("emoji-id")
-	print(reaction.emoji.id)
+	await message.channel.send("reaction has been added")
+	await message.channel.send(reaction)
+	await message.channel.send("message")
+	await message.channel.send(reaction.message)
+	await message.channel.send("emoji")
+	await message.channel.send(reaction.emoji)
+	await message.channel.send("reaction-channel")
+	await message.channel.send(reaction.message.channel)
+	await message.channel.send("reaction-channel-id")
+	await message.channel.send(reaction.message.channel.id)
+	await message.channel.send("message-content")
+	await message.channel.send(reaction.message.content)
+	await message.channel.send("message-author")
+	await message.channel.send(reaction.message.author.id)
+	await message.channel.send("reaction-by")
+	await message.channel.send(user.id)
+	await message.channel.send("emoji-hash")
+	await message.channel.send(hash(reaction.emoji))
+	await message.channel.send("emoji-name")
+	await message.channel.send(reaction.emoji.name)
+	await message.channel.send("emoji-id")
+	await message.channel.send(reaction.emoji.id)
 
 
 bot.run(token)
