@@ -196,10 +196,10 @@ async def show2(ctx):
 
 @bot.event
 async def on_raw_reaction_add(reaction, user):
-    message = reaction.message
-    emoji = reaction.emoji
+	message = reaction.message
+	emoji = reaction.emoji
 
-    await message.channel.send(emoji)
+	await message.channel.send(emoji)
 	await message.channel.send("reaction has been added")
 	await message.channel.send(reaction)
 	await message.channel.send("message")
