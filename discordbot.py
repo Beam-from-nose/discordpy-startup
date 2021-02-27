@@ -74,7 +74,7 @@ async def show(ctx):
 	send_message = await ctx.send(message)
 	add_reactions(send_message)
 	
-def add_reactions(message)
+def add_reactions(message):
 	list = [
 		'\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}', 
 		'\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
