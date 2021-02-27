@@ -121,7 +121,8 @@ async def on_reaction_add(reaction, user):
 
 		if imno1 == None:
 			return False
-
+		print(imno1)
+		print(imno2)
 		# メンバーリストを取得
 		state = user.voice # コマンド実行者のVCステータスを取得
 		if state is None: 
