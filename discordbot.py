@@ -201,5 +201,4 @@ async def on_raw_reaction_add(reaction, user):
 
 	await message.channel.send(emoji)
 
-
 bot.run(token)
