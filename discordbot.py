@@ -204,6 +204,6 @@ async def on_reaction_add(reaction, user):
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
 	
-		#await message.channel.send(emoji)
+		await message.channel.send('nin')
 
 bot.run(token)
