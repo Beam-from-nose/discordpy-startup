@@ -63,7 +63,7 @@ async def show(ctx):
 	i = 0
 	messages = []
 	for member in members:
-		if member.author.voice.self_mute == True:
+		if member.voice.self_mute == True:
 			continue
 			
 		if member.nick == None:
@@ -131,7 +131,7 @@ async def on_reaction_add(reaction, user):
 		members = state.channel.members
 		members_count = 0
 		for mem in members:
-			if mem.author.voice.self_mute == True:
+			if mem.voice.self_mute == True:
 				continue
 			
 			members_count = members_count + 1
@@ -172,7 +172,7 @@ async def on_reaction_add(reaction, user):
 		m = 0
 		for member in members:
 			
-			if member.author.voice.self_mute == True:
+			if member.voice.self_mute == True:
 				continue	
 			
 			if role_list[m] == 1:
