@@ -197,10 +197,10 @@ async def show2(ctx):
 @bot.event
 async def on_reaction_add(reaction, user):
     message = reaction.message
-    emoji = reaction.emoji.id
+    emoji = reaction.emoji
 
-    if emoji == '\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}':
-        message.delete
+    await message.channel.send(emoji)
+
 
 
 bot.run(token)
