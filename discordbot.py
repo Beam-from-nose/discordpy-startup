@@ -139,6 +139,7 @@ async def show(ctx):
         return False
     
     members = state.channel.members
+
     i = 0
     messages = []
     for member in members:
@@ -151,4 +152,43 @@ async def show(ctx):
     message = '\n'.join(messages)
     await ctx.send(message)
 
+@bot.command()
+async def show2(ctx):
+    
+    # メンバーリストを取得
+    state = ctx.author.voice # コマンド実行者のVCステータスを取得
+    if state is None: 
+        return False
+    
+    members = state.channel.members
+    members_count = len(members) # 人数取得
+
+    i = 0
+    messages = []
+    for member in members:
+        if member.nick == None:
+            messages.append(str(i) + '-' + member.name)
+        else:
+            messages.append(str(i) + '-' + member.nick)         
+        i = i + 1
+    
+    message = '\n'.join(messages)
+    send_message = await ctx.send(message)
+
+    list = [
+        ':zelo:', 
+        ':one:', 
+        ':two:',
+        ':three:',
+        ':four:',
+        ':five:', 
+        ':six:', 
+        ':seven:',
+        ':eight:',
+        ':nine:'
+    ]
+    
+    for a in list:
+        await send_message.add_reaction("a")
+    
 bot.run(token)
