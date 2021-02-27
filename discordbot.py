@@ -132,7 +132,7 @@ async def on_reaction_add(reaction, user):
 
 		#人数チェック
 		if members_count < 3:
-			await ctx.send('ボイスチャンネルの人数が少なすぎます')
+			#await ctx.send('ボイスチャンネルの人数が少なすぎます')
 			return False
 
 		#人数分の役職
