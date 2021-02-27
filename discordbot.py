@@ -72,7 +72,7 @@ async def show(ctx):
 			messages.append(str(i) + '-' + member.nick)		 
 		i = i + 1
 		
-	if len(messages) == 0
+	if len(messages) == 0:
 		return False
 	
 	message = '\n'.join(messages)
