@@ -25,12 +25,12 @@ async def act(ctx):
 		'死体レポート禁止', 
 		'位置情報と監視カメラ禁止',
 		'停電とコミュサボの修理禁止',
-		'緊急タスク時、アドミン側とリアクター上部の修理禁止',
+		'緊急ボタン禁止',
 		'緊急ボタン禁止', 
 		'死体レポート禁止', 
 		'位置情報と監視カメラ禁止',
 		'停電とコミュサボの修理禁止',
-		'緊急タスク時、アドミン側とリアクター上部の修理禁止'
+		'死体レポート禁止'
 	]
 
 	random.shuffle(act_list)
@@ -47,9 +47,8 @@ async def act(ctx):
 		await member.send(act_list[i])
 		i = i + 1
 
-@bot.command()
-async def aa(ctx):
-	await message.delete()	
+	await message.delete(delay=1.2)
+
 	
 
 @bot.command()
@@ -119,7 +118,6 @@ async def on_reaction_add(reaction, user):
 		
 		# ストップならメッセージ削除	
 		if reaction.emoji == "⛔":
-			print(reaction.emoji)
 			await message.delete(delay=1.2)
 			return False
 
