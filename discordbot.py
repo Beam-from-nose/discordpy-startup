@@ -89,7 +89,7 @@ async def show(ctx):
 		'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{BLACK RIGHT-POINTING TRIANGLE}',
-		'\N{{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+		'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
 	]
 	for a in list:
 		await send_message.add_reaction(a)
@@ -99,16 +99,13 @@ async def show(ctx):
 async def on_reaction_add(reaction, user):
 
 	#スタート以外はスルー
-	if reaction.emoji != "▶" or reaction.emoji != "↩":
+	if reaction.emoji != "▶":
 		return False
 
 	message = reaction.message
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
 		
-		# 繰り返しならメンバーを再取得
-		
-			
 		# シャープなら投稿を消して終了
 		#if reaction.emoji == "#⃣":
 		#	await message.delete(message)
@@ -224,9 +221,7 @@ async def on_reaction_add(reaction, user):
 			'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{BLACK RIGHT-POINTING TRIANGLE}',
-			'\N{LEFTWARDS ARROW WITH HOOK}'
+			'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
 		]
 		for a in list:
 			await message.add_reaction(a)
-
-			
