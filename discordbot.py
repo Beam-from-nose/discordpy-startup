@@ -99,7 +99,7 @@ async def show(ctx):
 async def on_reaction_add(reaction, user):
 
 	#スタート以外はスルー
-	if reaction.emoji == "▶"
+	if reaction.emoji == "▶":
 		message = reaction.message
 	elif reaction.emoji == "↩":
 		message = reaction.message
