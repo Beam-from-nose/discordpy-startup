@@ -107,34 +107,7 @@ async def on_reaction_add(reaction, user):
 	if user.bot == False and message.author.id == 814061487647490118 :
 		
 		# 繰り返しならメンバーを再取得
-		if reaction.emoji == "↩":
-			
-			# メンバーリストを取得
-			state_1 = ctx.author.voice # コマンド実行者のVCステータスを取得
-			if state_1 is None: 
-				return False
-	
-			members_1 = state_1.channel.members
-			members_count_1 = len(members_1) # 人数取得
-
-			ii = 0
-			messages_1 = []
-			for me in members_1:
-				if me.voice.self_mute == True:
-					continue
-
-				if me.nick == None:
-					me.append(str(i) + '-' + me.name)
-				else:
-					me.append(str(i) + '-' + me.nick)		 
-				ii = ii + 1
 		
-			if len(me) == 0:
-				return False
-
-			me = '\n'.join(me)
-			await message.edit(content=me)		
-			return False
 			
 		# シャープなら投稿を消して終了
 		#if reaction.emoji == "#⃣":
