@@ -89,7 +89,7 @@ async def show(ctx):
 		'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{BLACK RIGHT-POINTING TRIANGLE}',
-		'\N{LEFTWARDS ARROW WITH HOOK}'
+		'\N{{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
 	]
 	for a in list:
 		await send_message.add_reaction(a)
