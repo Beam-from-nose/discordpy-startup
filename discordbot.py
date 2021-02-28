@@ -47,7 +47,10 @@ async def act(ctx):
 		await member.send(act_list[i])
 		i = i + 1
 
-
+@bot.command()
+async def aa(ctx):
+	await message.delete()	
+	
 
 @bot.command()
 async def show(ctx):
