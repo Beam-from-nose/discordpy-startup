@@ -106,11 +106,35 @@ async def on_reaction_add(reaction, user):
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
 		
-		# シャープなら投稿を消して終了
-		#if reaction.emoji == "#⃣":
-		#	await message.delete(message)
-		#
-		#return False
+		# 繰り返しならメンバーリロード
+		if reaction.emoji == "↩":
+			# メンバーリストを取得
+			state = ctx.author.voice # コマンド実行者のVCステータスを取得
+			if state is None: 
+				return False
+
+			members = state.channel.members
+			members_count = len(members) # 人数取得
+
+			i = 0
+			messages = []
+			for member in members:
+				if member.voice.self_mute == True:
+					continue
+
+				if member.nick == None:
+					messages.append(str(i) + '-' + member.name)
+				else:
+					messages.append(str(i) + '-' + member.nick)		 
+				i = i + 1
+
+			if len(messages) == 0:
+				return False
+
+			send_message = '\n'.join(messages)
+			await message.edit(content=send_message)
+			
+			return False
 
 		#投稿のリアクション状況を取得
 		i = 0;
