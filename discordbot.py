@@ -120,7 +120,7 @@ async def on_reaction_add(reaction, user):
 		# ストップならメッセージ削除	
 		if reaction.emoji == "⛔":
 			print(reaction.emoji)
-			await message.delete()	
+			await message.delete(delay=1.2)
 			return False
 
 		# 繰り返しならメンバーリロード
