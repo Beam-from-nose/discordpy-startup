@@ -99,10 +99,14 @@ async def show(ctx):
 async def on_reaction_add(reaction, user):
 
 	#スタート以外はスルー
-	if reaction.emoji != "▶" or reaction.emoji != "↩":
+	if reaction.emoji == "▶"
+		message = reaction.message
+	elif reaction.emoji == "↩":
+		message = reaction.message
+	else:
 		return False
 
-	message = reaction.message
+	
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
 		print(reaction.emoji)	
