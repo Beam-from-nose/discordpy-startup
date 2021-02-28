@@ -225,3 +225,4 @@ async def on_reaction_add(reaction, user):
 		]
 		for a in list:
 			await message.add_reaction(a)
+
