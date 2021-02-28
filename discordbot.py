@@ -89,7 +89,7 @@ async def show(ctx):
 		'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{BLACK RIGHT-POINTING TRIANGLE}',
-		'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+		'\N{LEFTWARDS ARROW WITH HOOK}'
 	]
 	for a in list:
 		await send_message.add_reaction(a)
@@ -99,7 +99,7 @@ async def show(ctx):
 async def on_reaction_add(reaction, user):
 
 	#スタート以外はスルー
-	if reaction.emoji != "▶":
+	if reaction.emoji != "▶" or reaction.emoji != "↩":
 		return False
 
 	message = reaction.message
@@ -221,7 +221,7 @@ async def on_reaction_add(reaction, user):
 			'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{BLACK RIGHT-POINTING TRIANGLE}',
-			'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+			'\N{LEFTWARDS ARROW WITH HOOK}'
 		]
 		for a in list:
 			await message.add_reaction(a)
