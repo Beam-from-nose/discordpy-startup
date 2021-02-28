@@ -46,8 +46,10 @@ async def act(ctx):
 	for member in members:
 		await member.send(act_list[i])
 		i = i + 1
-
-	await ctx.message.delete(delay=1.2)
+		
+	message = ctx.message
+	print(ctx)	
+	await message.delete(delay=1.2)
 
 	
 
