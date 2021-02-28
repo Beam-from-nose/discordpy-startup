@@ -90,7 +90,7 @@ async def show(ctx):
 		'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{BLACK RIGHT-POINTING TRIANGLE}',
 		'\N{LEFTWARDS ARROW WITH HOOK}',
-		'\N{BLACK MEDIUM SQUARE}'
+		'\N{NO ENTRY}'
 
 	]
 	for a in list:
@@ -105,7 +105,7 @@ async def on_reaction_add(reaction, user):
 		message = reaction.message
 	elif reaction.emoji == "↩":
 		message = reaction.message
-	elif reaction.emoji == "◾":
+	elif reaction.emoji == "⛔":
 		message = reaction.message
 	else:
 		return False
@@ -115,7 +115,7 @@ async def on_reaction_add(reaction, user):
 	if user.bot == False and message.author.id == 814061487647490118 :
 		
 		# ストップならメッセージ削除	
-		if reaction.emoji == "◾":
+		if reaction.emoji == "⛔":
 			print(reaction.emoji)
 			message.delete()	
 			return False
@@ -260,7 +260,7 @@ async def on_reaction_add(reaction, user):
 			'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{BLACK RIGHT-POINTING TRIANGLE}',
 			'\N{LEFTWARDS ARROW WITH HOOK}',
-			'\N{BLACK MEDIUM SQUARE}'
+			'\N{NO ENTRY}'
 		]
 		for a in list:
 			await message.add_reaction(a)
