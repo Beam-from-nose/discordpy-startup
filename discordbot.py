@@ -89,7 +89,7 @@ async def show(ctx):
 		'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 		'\N{BLACK RIGHT-POINTING TRIANGLE}',
-		'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+		'\N{LEFTWARDS ARROW WITH HOOK}'
 	]
 	for a in list:
 		await send_message.add_reaction(a)
@@ -99,13 +99,43 @@ async def show(ctx):
 async def on_reaction_add(reaction, user):
 
 	#スタート以外はスルー
-	if reaction.emoji != "▶":
+	if reaction.emoji != "▶"　or reaction.emoji !="↩":
 		return False
 
 	message = reaction.message
 	#押したのが人間かつ押されたのがながやbot
 	if user.bot == False and message.author.id == 814061487647490118 :
 		
+		# 繰り返しならメンバーを再取得
+		if reaction.emoji == "↩":
+			
+			# メンバーリストを取得
+			state_1 = ctx.author.voice # コマンド実行者のVCステータスを取得
+			if state_1 is None: 
+				return False
+	
+			members_1 = state_1.channel.members
+			members_count_1 = len(members_1) # 人数取得
+
+			ii = 0
+			messages_1 = []
+			for me in members_1:
+				if me.voice.self_mute == True:
+					continue
+
+				if me.nick == None:
+					me.append(str(i) + '-' + me.name)
+				else:
+					me.append(str(i) + '-' + me.nick)		 
+				ii = ii + 1
+		
+			if len(me) == 0:
+				return False
+
+			me = '\n'.join(me)
+			await message.edit(content=me)		
+			return False
+			
 		# シャープなら投稿を消して終了
 		#if reaction.emoji == "#⃣":
 		#	await message.delete(message)
@@ -221,116 +251,9 @@ async def on_reaction_add(reaction, user):
 			'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
 			'\N{BLACK RIGHT-POINTING TRIANGLE}',
-			'\N{NUMBER SIGN}\N{COMBINING ENCLOSING KEYCAP}'
+			'\N{LEFTWARDS ARROW WITH HOOK}'
 		]
 		for a in list:
 			await message.add_reaction(a)
 
 			
-			
-			
-			
-@bot.command()
-async def kj(ctx,imno1,imno2=None):
-	
-	入力値チェック
-	if len(imno1) != 1:
-		await ctx.send('1つ目の入力値が不正です')
-		return False
-	if imno2 != None:
-		if len(imno2) != 1:
-			await ctx.send('2つ目の入力値が不正です')
-			return False
-		if int(imno1) == int(imno2):
-			await ctx.send('同じ番号が指定されています')
-			return False
-	
-	# メンバーリストを取得
-	state = ctx.author.voice # コマンド実行者のVCステータスを取得
-	if state is None: 
-		return False
-	
-	members = state.channel.members
-	members_count = len(members) # 人数取得
-	
-	#人数チェック
-	if members_count < 3:
-		await ctx.send('ボイスチャンネルの人数が少なすぎます')
-		return False
-	
-	#人数分の役職
-	role_list = []
-	for i in range(members_count):
-		
-		if i == 0:
-			role_list.append(1)
-		else:
-			role_list.append(0)
-	 
-	while True:
-		random.shuffle(role_list)
-		
-		#インポスター1人
-		if imno2 == None:
-			if role_list[int(imno1)] == 0:
-				two_mode = False
-				break
-
-		#インポスター2人
-		else:
-			if role_list[int(imno1)] == 0 and role_list[int(imno2)] == 0:
-				two_mode = True
-				if random.random() >= 0.5:
-					kill_flag = True 
-				else:
-					kill_flag = False
-				break
-
-	m = 0
-	for member in members:
-		if role_list[m] == 1:
-			await member.send('あなたは狂人')
-			#await ctx.send('あなたは狂人')
-		else:
-			if two_mode == True:
-				if m == int(imno1) or m == int(imno2):
-					if kill_flag == True:
-						await member.send('あなたはキルできるインポスター')
-						#await ctx.send('あなたはキルできるインポスター')
-						kill_flag = False 
-					else:
-						await member.send('あなたはキルできないインポスター')
-						#await ctx.send('あなたはキルできないインポスター')
-						kill_flag = True 
-				else:
-					await member.send('あなたはクルー')
-					#await ctx.send('あなたはクルー')
-			else:
-				await member.send('あなたはクルー')
-				#await ctx.send('あなたはクルー')
-
-		m = m + 1
-
-@bot.command()
-async def show2(ctx):
-	
-	# メンバーリストを取得
-	state = ctx.author.voice # コマンド実行者のVCステータスを取得
-	if state is None: 
-		return False
-	
-	members = state.channel.members
-
-	i = 0
-	messages = []
-	for member in members:
-		if member.nick == None:
-			messages.append(str(i) + '-' + member.name)
-		else:
-			messages.append(str(i) + '-' + member.nick)		 
-		i = i + 1
-	
-	message = '\n'.join(messages)
-	await ctx.send(message)			
-			
-bot.run(token)
