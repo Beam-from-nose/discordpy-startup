@@ -47,9 +47,11 @@ async def act(ctx):
 		await member.send(act_list[i])
 		i = i + 1
 
-def get_member_list(ctx):
 	
-	# メンバーリストを取得
+@bot.command()
+async def show(ctx):
+	
+		# メンバーリストを取得
 	state = ctx.author.voice # コマンド実行者のVCステータスを取得
 	if state is None: 
 		return False
@@ -73,14 +75,6 @@ def get_member_list(ctx):
 		return False
 	
 	message = '\n'.join(messages)
-	
-	return message
-
-	
-@bot.command()
-async def show(ctx):
-	
-	message = get_member_list(ctx)
 	if message == None:
 		return False
 
