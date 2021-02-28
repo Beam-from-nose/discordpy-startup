@@ -113,7 +113,7 @@ async def on_reaction_add(reaction, user):
 		# 繰り返しならメンバーリロード
 		if reaction.emoji == "↩":
 			# メンバーリストを取得
-			state = ctx.author.voice # コマンド実行者のVCステータスを取得
+			state = user.voice # コマンド実行者のVCステータスを取得
 			if state is None: 
 				return False
 
