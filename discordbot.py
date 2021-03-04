@@ -243,8 +243,13 @@ async def on_reaction_add(reaction, user):
 						await member.send('あなたはクルー')
 						#await ctx.send('あなたはクルー')
 				else:
-					await member.send('あなたはクルー')
-					#await ctx.send('あなたはクルー')
+					if m == int(imno1):
+						await member.send('あなたはインポスター')
+						#await ctx.send('あなたはキルできるインポスター')
+
+					else:
+						await member.send('あなたはクルー')
+						#await ctx.send('あなたはクルー')
 
 			m = m + 1
 		
