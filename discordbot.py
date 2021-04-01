@@ -113,8 +113,8 @@ async def smute(ctx):
 	send_message = await ctx.send(message)
 	list = [
 		'\N{SPEAKER}', 
-		'\N{SPEAKER WITH CANCELLATION STROKE}'
-		'\N{MOBILE PHONE}'
+		'\N{SPEAKER WITH CANCELLATION STROKE}',
+		'\N{MOBILE PHONE}',
 		'\N{NO ENTRY}'
 
 	]
