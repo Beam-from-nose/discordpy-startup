@@ -193,9 +193,10 @@ async def on_reaction_add(reaction, user):
 			members = state.channel.members
 			for member in members:
 
-				if len(member.nick) > 0 and "()" in member.nick == True:
-					continue
-				elif member.voice.self_mute == True:
+				if len(member.nick) > 0 
+					if "()" in member.nick == True:
+						continue
+				if member.voice.self_mute == True:
 					continue
 				elif member.voice.mute == False:
 					await member.edit(mute=True) # マイクミュート
@@ -218,9 +219,10 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-				if len(member.nick) > 0 and "()" in member.nick == True:
-					continue
-				elif member.voice.self_mute == True:
+				if len(member.nick) > 0 
+					if "()" in member.nick == True:
+						continue
+				if member.voice.self_mute == True:
 					continue
 				elif member.voice.mute == True and member.voice.deaf == False:
 					await member.edit(mute=False) # マイクミュート解除
