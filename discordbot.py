@@ -186,7 +186,8 @@ async def on_reaction_add(reaction, user):
 		if reaction.emoji == "🔈":
 			
 			print(message.reactions)
-			
+			async for user in reaction.users():
+				print(user)
 			# メンバーリストを取得
 			state = user.voice # コマンド実行者のVCステータスを取得
 			if state is None: 
