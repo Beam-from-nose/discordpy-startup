@@ -115,6 +115,7 @@ async def smute(ctx):
 		'\N{SPEAKER}', 
 		'\N{SPEAKER WITH CANCELLATION STROKE}',
 		'\N{END WITH LEFTWARDS ARROW ABOVE}',
+		'\N{MOBILE PHONE}',
 		'\N{NO ENTRY}'
 	]
 	for a in list:
@@ -180,6 +181,11 @@ async def on_reaction_add(reaction, user):
 		
 		#参加者のミュート解除
 		if reaction.emoji == "🔈":
+			#リアクション初期化
+			async for user in reaction.users():
+				if user.bot == False:
+					await reaction.remove(user)
+			
 			# メンバーリストを取得
 			state = user.voice # コマンド実行者のVCステータスを取得
 			if state is None: 
@@ -198,13 +204,15 @@ async def on_reaction_add(reaction, user):
 				else:				
 					await member.edit(mute=False) # マイクミュート解除
 					await member.edit(deafen=False) # スピーカーミュート解除
+
+
+		#参加者のミュート
+		if reaction.emoji == "🔇":
 			#リアクション初期化
 			async for user in reaction.users():
 				if user.bot == False:
 					await reaction.remove(user)
 
-		#参加者のミュート
-		if reaction.emoji == "🔇":
 			# メンバーリストを取得
 			state = user.voice # コマンド実行者のVCステータスを取得
 			if state is None: 
@@ -219,14 +227,14 @@ async def on_reaction_add(reaction, user):
 				else:
 					await member.edit(mute=True) # マイクミュート
 					await member.edit(deafen=True) # スピーカーミュート
+
+		#参加者のミュート解除
+		if reaction.emoji == "🔚":
 			#リアクション初期化
 			async for user in reaction.users():
 				if user.bot == False:
 					await reaction.remove(user)
 
-		#参加者のミュート解除
-		if reaction.emoji == "🔚":
-			
 			# メンバーリストを取得
 			state = user.voice # コマンド実行者のVCステータスを取得
 			if state is None: 
@@ -236,10 +244,6 @@ async def on_reaction_add(reaction, user):
 			for member in members:	
 				await member.edit(mute=False) # チャンネルの参加者をミュート解除する
 				await member.edit(deafen=False) # チャンネルの参加者をミュート解除する
-			#リアクション初期化
-			async for user in reaction.users():
-				if user.bot == False:
-					await reaction.remove(user)
 
 		#投稿のリアクション状況を取得
 		if reaction.emoji == "↩":
