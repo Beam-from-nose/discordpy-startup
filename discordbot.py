@@ -193,8 +193,9 @@ async def on_reaction_add(reaction, user):
 				if member.voice.self_mute == True:
 					continue
 				
-				await member.edit(deaf=False) # チャンネルの参加者をミュート解除する
-			
+				await member.edit(mute=False) # チャンネルの参加者をミュート解除する
+				await member.edit(deafen=False) # チャンネルの参加者をミュート解除する
+
 		#参加者のミュート
 		if reaction.emoji == "🔇":
 			# メンバーリストを取得
@@ -207,7 +208,8 @@ async def on_reaction_add(reaction, user):
 				if member.voice.self_mute == True:
 					continue
 				
-				await member.edit(mute=True) # チャンネルの各参加者をミュートする
+				await member.edit(mute=True) # チャンネルの参加者をミュート解除する
+				await member.edit(deafen=True) # チャンネルの参加者をミュート解除する
 				
 		#投稿のリアクション状況を取得
 		if reaction.emoji == "↩":
