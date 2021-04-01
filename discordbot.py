@@ -195,7 +195,7 @@ async def on_reaction_add(reaction, user):
 
 				if len(member.nick) > 0 :
 					print(member.nick)
-					if "()" in member.nick == True:
+					if "()" in member.nick:
 						print("ss")
 						continue
 				if member.voice.self_mute == True:
