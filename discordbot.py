@@ -193,7 +193,7 @@ async def on_reaction_add(reaction, user):
 			members = state.channel.members
 			for member in members:
 
-				if len(member.nick) > 0 
+				if len(member.nick) > 0 :
 					if "()" in member.nick == True:
 						continue
 				if member.voice.self_mute == True:
@@ -219,7 +219,7 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-				if len(member.nick) > 0 
+				if len(member.nick) > 0 :
 					if "()" in member.nick == True:
 						continue
 				if member.voice.self_mute == True:
