@@ -203,8 +203,8 @@ async def on_reaction_add(reaction, user):
 				if member.voice.self_mute == True:
 					continue
 				
-				await member.edit(deaf=True) # チャンネルの各参加者をミュートする
-
+				await member.edit(mute=True) # チャンネルの各参加者をミュートする
+				
 		#投稿のリアクション状況を取得
 		if reaction.emoji == "↩":
 			i = 0;
