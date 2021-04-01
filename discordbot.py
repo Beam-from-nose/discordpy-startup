@@ -131,6 +131,10 @@ async def on_reaction_add(reaction, user):
 		message = reaction.message
 	elif reaction.emoji == "⛔":
 		message = reaction.message
+	elif reaction.emoji == "🔈":
+		message = reaction.message
+	elif reaction.emoji == "🔇":
+		message = reaction.message
 	else:
 		return False
 
@@ -172,125 +176,154 @@ async def on_reaction_add(reaction, user):
 			await message.edit(content=send_message)
 			
 			return False
+		
+		#参加者のミュート解除
+		if reaction.emoji == "🔈":
+			# メンバーリストを取得
+			state = user.voice # コマンド実行者のVCステータスを取得
+			if state is None: 
+				return False
+
+			members = state.channel.members
+			for member in members:
+				if member.voice.self_mute == True:
+					continue
+				
+				await member.edit(self_deaf=False) # チャンネルの各参加者をミュートする
+			
+		#参加者のミュート
+		if reaction.emoji == "🔇":
+			# メンバーリストを取得
+			state = user.voice # コマンド実行者のVCステータスを取得
+			if state is None: 
+				return False
+
+			members = state.channel.members
+			for member in members:
+				if member.voice.self_mute == True:
+					continue
+				
+				await member.edit(self_deaf=True) # チャンネルの各参加者をミュートする
 
 		#投稿のリアクション状況を取得
-		i = 0;
-		imno1 = None
-		imno2 = None
-		
-		for r in message.reactions:
-		
-			if r.count > 1:
-				if imno1 == None:
-					imno1 = i
-				else:
-					imno2 = i
-			i = i + 1
-			if i == 10:
-				break
+		if reaction.emoji == "↩":
+			i = 0;
+			imno1 = None
+			imno2 = None
 
-		if imno1 == None:
-			return False
-		print(imno1)
-		print(imno2)
-		# メンバーリストを取得
-		state = user.voice # コマンド実行者のVCステータスを取得
-		if state is None: 
-			return False
+			for r in message.reactions:
 
-		members = state.channel.members
-		members_count = 0
-		for mem in members:
-			if mem.voice.self_mute == True:
-				continue
-			
-			members_count = members_count + 1
-		
-		#人数チェック
-		if members_count < 3:
-			#await ctx.send('ボイスチャンネルの人数が少なすぎます')
-			return False
-
-		#人数分の役職
-		role_list = []
-		for i in range(members_count):
-
-			if i == 0:
-				role_list.append(1)
-			else:
-				role_list.append(0)
-
-		while True:
-			random.shuffle(role_list)
-
-			#インポスター1人
-			if imno2 == None:
-				if role_list[int(imno1)] == 0:
-					two_mode = False
-					break
-
-			#インポスター2人
-			else:
-				if role_list[int(imno1)] == 0 and role_list[int(imno2)] == 0:
-					two_mode = True
-					if random.random() >= 0.5:
-						kill_flag = True 
+				if r.count > 1:
+					if imno1 == None:
+						imno1 = i
 					else:
-						kill_flag = False
+						imno2 = i
+				i = i + 1
+				if i == 10:
 					break
 
-		m = 0
-		for member in members:
-			
-			if member.voice.self_mute == True:
-				continue	
-			
-			if role_list[m] == 1:
-				await member.send('あなたは狂人')
-				#await ctx.send('あなたは狂人')
-			else:
-				if two_mode == True:
-					if m == int(imno1) or m == int(imno2):
-						if kill_flag == True:
-							await member.send('あなたはキルできるインポスター')
-							#await ctx.send('あなたはキルできるインポスター')
-							kill_flag = False 
-						else:
-							await member.send('あなたはキルできないインポスター')
-							#await ctx.send('あなたはキルできないインポスター')
+			if imno1 == None:
+				return False
+			print(imno1)
+			print(imno2)
+			# メンバーリストを取得
+			state = user.voice # コマンド実行者のVCステータスを取得
+			if state is None: 
+				return False
+
+			members = state.channel.members
+			members_count = 0
+			for mem in members:
+				if mem.voice.self_mute == True:
+					continue
+
+				members_count = members_count + 1
+
+			#人数チェック
+			if members_count < 3:
+				#await ctx.send('ボイスチャンネルの人数が少なすぎます')
+				return False
+
+			#人数分の役職
+			role_list = []
+			for i in range(members_count):
+
+				if i == 0:
+					role_list.append(1)
+				else:
+					role_list.append(0)
+
+			while True:
+				random.shuffle(role_list)
+
+				#インポスター1人
+				if imno2 == None:
+					if role_list[int(imno1)] == 0:
+						two_mode = False
+						break
+
+				#インポスター2人
+				else:
+					if role_list[int(imno1)] == 0 and role_list[int(imno2)] == 0:
+						two_mode = True
+						if random.random() >= 0.5:
 							kill_flag = True 
-					else:
-						await member.send('あなたはクルー')
-						#await ctx.send('あなたはクルー')
+						else:
+							kill_flag = False
+						break
+
+			m = 0
+			for member in members:
+
+				if member.voice.self_mute == True:
+					continue	
+
+				if role_list[m] == 1:
+					await member.send('あなたは狂人')
+					#await ctx.send('あなたは狂人')
 				else:
-					if m == int(imno1):
-						await member.send('あなたはインポスター')
-						#await ctx.send('あなたはキルできるインポスター')
-
+					if two_mode == True:
+						if m == int(imno1) or m == int(imno2):
+							if kill_flag == True:
+								await member.send('あなたはキルできるインポスター')
+								#await ctx.send('あなたはキルできるインポスター')
+								kill_flag = False 
+							else:
+								await member.send('あなたはキルできないインポスター')
+								#await ctx.send('あなたはキルできないインポスター')
+								kill_flag = True 
+						else:
+							await member.send('あなたはクルー')
+							#await ctx.send('あなたはクルー')
 					else:
-						await member.send('あなたはクルー')
-						#await ctx.send('あなたはクルー')
+						if m == int(imno1):
+							await member.send('あなたはインポスター')
+							#await ctx.send('あなたはキルできるインポスター')
 
-			m = m + 1
-		
-		#リアクション初期化
-		await message.clear_reactions()
-		list = [
-			'\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}', 
-			'\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
-			'\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}',
-			'\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}',
-			'\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}',
-			'\N{DIGIT FIVE}\N{COMBINING ENCLOSING KEYCAP}', 
-			'\N{DIGIT SIX}\N{COMBINING ENCLOSING KEYCAP}', 
-			'\N{DIGIT SEVEN}\N{COMBINING ENCLOSING KEYCAP}',
-			'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
-			'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
-			'\N{BLACK RIGHT-POINTING TRIANGLE}',
-			'\N{LEFTWARDS ARROW WITH HOOK}',
-			'\N{NO ENTRY}'
-		]
-		for a in list:
-			await message.add_reaction(a)
+						else:
+							await member.send('あなたはクルー')
+							#await ctx.send('あなたはクルー')
+
+				m = m + 1
+
+			#リアクション初期化
+			await message.clear_reactions()
+			list = [
+				'\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}', 
+				'\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}', 
+				'\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}',
+				'\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}',
+				'\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}',
+				'\N{DIGIT FIVE}\N{COMBINING ENCLOSING KEYCAP}', 
+				'\N{DIGIT SIX}\N{COMBINING ENCLOSING KEYCAP}', 
+				'\N{DIGIT SEVEN}\N{COMBINING ENCLOSING KEYCAP}',
+				'\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}',
+				'\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}',
+				'\N{BLACK RIGHT-POINTING TRIANGLE}',
+				'\N{LEFTWARDS ARROW WITH HOOK}',
+				'\N{NO ENTRY}'
+			]
+			for a in list:
+				await message.add_reaction(a)
 
 bot.run(token)
