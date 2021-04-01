@@ -114,8 +114,6 @@ async def smute(ctx):
 	list = [
 		'\N{SPEAKER}', 
 		'\N{SPEAKER WITH CANCELLATION STROKE}',
-		'\N{SKULL}',
-		'\N{MOBILE PHONE}',
 		'\N{END WITH LEFTWARDS ARROW ABOVE}',
 		'\N{NO ENTRY}'
 	]
