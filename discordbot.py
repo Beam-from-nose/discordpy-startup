@@ -221,6 +221,8 @@ async def on_reaction_add(reaction, user):
 			members = state.channel.members
 			for member in members:
 				async for reaction_user in message.reaction.users():
+					print(reaction_user)
+					print(member)
 					if reaction_user == member and reaction_user.bot == false:
 						continue
 	
