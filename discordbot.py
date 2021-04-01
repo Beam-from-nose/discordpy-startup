@@ -192,7 +192,7 @@ async def on_reaction_add(reaction, user):
 
 				if member.voice.self_mute == True:
 					continue
-				elseif member.voice.mute == False:
+				elif member.voice.mute == False:
 					await member.edit(mute=True) # マイクミュート
 				else:				
 					await member.edit(mute=False) # マイクミュート解除
@@ -209,7 +209,7 @@ async def on_reaction_add(reaction, user):
 			for member in members:
 				if member.voice.self_mute == True:
 					continue
-				elseif member.voice.mute == True:
+				elif member.voice.mute == True:
 					await member.edit(mute=False) # マイクミュート解除
 				else:
 					await member.edit(mute=True) # マイクミュート
