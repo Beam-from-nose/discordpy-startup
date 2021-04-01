@@ -115,7 +115,6 @@ async def smute(ctx):
 		'\N{SPEAKER}', 
 		'\N{SPEAKER WITH CANCELLATION STROKE}',
 		'\N{END WITH LEFTWARDS ARROW ABOVE}',
-		'\N{MOBILE PHONE}',
 		'\N{NO ENTRY}'
 	]
 	for a in list:
@@ -193,10 +192,8 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-				async for reaction_user in message.reactions.users():
-					if reaction_user == member and reaction_user.bot == false:
-						continue
-				
+				if '(m)'in member.nick == True:
+					continue
 				if member.voice.self_mute == True:
 					continue
 				elif member.voice.mute == False:
@@ -220,9 +217,8 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-				reaction_users = await message.reactions.users().flatten()
-				print(reaction_users)
-	
+				if '(m)'in member.nick == True:
+					continue
 				if member.voice.self_mute == True:
 					continue
 				elif member.voice.mute == True:
