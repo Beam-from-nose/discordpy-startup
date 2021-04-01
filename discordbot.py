@@ -185,10 +185,13 @@ async def on_reaction_add(reaction, user):
 				return False
 
 			members = state.channel.members
+			print(members)
+
 			for member in members:
 				if member.voice.self_mute == True:
 					continue
-				
+				print(member)
+
 				await member.edit(deaf=False) # チャンネルの参加者をミュート解除する
 			
 		#参加者のミュート
