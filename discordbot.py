@@ -193,7 +193,7 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-				async for reaction_user in message.reaction.users():
+				async for reaction_user in message.reactions.users():
 					if reaction_user == member and reaction_user.bot == false:
 						continue
 				
@@ -220,7 +220,7 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-				reaction_users = await reaction.users().flatten()
+				reaction_users = await message.reactions.users().flatten()
 				print(reaction_users)
 	
 				if member.voice.self_mute == True:
