@@ -114,9 +114,10 @@ async def smute(ctx):
 	list = [
 		'\N{SPEAKER}', 
 		'\N{SPEAKER WITH CANCELLATION STROKE}',
+		'\N{SKULL}',
 		'\N{MOBILE PHONE}',
+		'\N{END WITH LEFTWARDS ARROW ABOVE}',
 		'\N{NO ENTRY}'
-
 	]
 	for a in list:
 		await send_message.add_reaction(a)
@@ -134,6 +135,10 @@ async def on_reaction_add(reaction, user):
 	elif reaction.emoji == "🔈":
 		message = reaction.message
 	elif reaction.emoji == "🔇":
+		message = reaction.message
+	elif reaction.emoji == "💀":
+		message = reaction.message
+	elif reaction.emoji == "🔚":
 		message = reaction.message
 	else:
 		return False
@@ -179,6 +184,9 @@ async def on_reaction_add(reaction, user):
 		
 		#参加者のミュート解除
 		if reaction.emoji == "🔈":
+			
+			print(message.reactions)
+			
 			# メンバーリストを取得
 			state = user.voice # コマンド実行者のVCステータスを取得
 			if state is None: 
