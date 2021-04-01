@@ -101,6 +101,26 @@ async def show(ctx):
 		await send_message.add_reaction(a)
 	
 
+@bot.command()
+async def m(ctx):
+	
+	# メンバーリストを取得
+	state = ctx.author.voice # コマンド実行者のVCステータスを取得
+	if state is None: 
+		return False
+	
+	message = "セミオートミュート"
+	send_message = await ctx.send(message)
+	list = [
+		'\N{CIRCLED LATIN CAPITAL LETTER M}', 
+		'\N{SQUARED CJK UNIFIED IDEOGRAPH-7121}'
+		'\N{MOBILE PHONE}'
+		'\N{NO ENTRY}'
+
+	]
+	for a in list:
+		await send_message.add_reaction(a)
+	
 @bot.event
 async def on_reaction_add(reaction, user):
 
