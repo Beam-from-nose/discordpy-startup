@@ -216,6 +216,10 @@ async def on_reaction_add(reaction, user):
 				else:
 					await member.edit(mute=True) # マイクミュート
 					await member.edit(deafen=True) # スピーカーミュート
+			#リアクション初期化
+			async for user in reaction.users():
+				if user.bot == False:
+					await reaction.remove(user)
 
 		#参加者のミュート解除
 		if reaction.emoji == "🔚":
@@ -229,7 +233,10 @@ async def on_reaction_add(reaction, user):
 			for member in members:	
 				await member.edit(mute=False) # チャンネルの参加者をミュート解除する
 				await member.edit(deafen=False) # チャンネルの参加者をミュート解除する
-
+			#リアクション初期化
+			async for user in reaction.users():
+				if user.bot == False:
+					await reaction.remove(user)
 		#投稿のリアクション状況を取得
 		if reaction.emoji == "↩":
 			i = 0;
