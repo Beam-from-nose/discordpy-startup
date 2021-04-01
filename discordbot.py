@@ -187,7 +187,10 @@ async def on_reaction_add(reaction, user):
 
 			members = state.channel.members
 			for member in members:
-
+				async for reaction_user in message.reaction.users():
+					if reaction_user == member:
+						continue
+				
 				if member.voice.self_mute == True:
 					continue
 				elif member.voice.mute == False:
@@ -237,6 +240,7 @@ async def on_reaction_add(reaction, user):
 			async for user in reaction.users():
 				if user.bot == False:
 					await reaction.remove(user)
+
 		#投稿のリアクション状況を取得
 		if reaction.emoji == "↩":
 			i = 0;
