@@ -197,7 +197,7 @@ async def on_reaction_add(reaction, user):
 					await member.edit(deafen=False) # スピーカーミュート解除
 			#リアクション初期化
 			async for user in reaction.users():
-				if user.bot == False
+				if user.bot == False:
 					await reaction.remove(user)
 
 		#参加者のミュート
@@ -218,7 +218,7 @@ async def on_reaction_add(reaction, user):
 					await member.edit(deafen=True) # スピーカーミュート
 			#リアクション初期化
 			async for user in reaction.users():
-				if user.bot == False
+				if user.bot == False:
 					await reaction.remove(user)
 
 		#参加者のミュート解除
@@ -235,7 +235,7 @@ async def on_reaction_add(reaction, user):
 				await member.edit(deafen=False) # チャンネルの参加者をミュート解除する
 			#リアクション初期化
 			async for user in reaction.users():
-				if user.bot == False
+				if user.bot == False:
 					await reaction.remove(user)
 
 		#投稿のリアクション状況を取得
