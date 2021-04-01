@@ -102,7 +102,7 @@ async def show(ctx):
 	
 
 @bot.command()
-async def m(ctx):
+async def smute(ctx):
 	
 	# メンバーリストを取得
 	state = ctx.author.voice # コマンド実行者のVCステータスを取得
