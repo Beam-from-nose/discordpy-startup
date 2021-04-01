@@ -112,8 +112,8 @@ async def smute(ctx):
 	message = "セミオートミュート"
 	send_message = await ctx.send(message)
 	list = [
-		'\N{CIRCLED LATIN CAPITAL LETTER M}', 
-		'\N{SQUARED CJK UNIFIED IDEOGRAPH-7121}'
+		'\N{SPEAKER}', 
+		'\N{SPEAKER WITH CANCELLATION STROKE}'
 		'\N{MOBILE PHONE}'
 		'\N{NO ENTRY}'
 
