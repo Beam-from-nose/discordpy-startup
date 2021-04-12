@@ -178,72 +178,7 @@ async def on_reaction_add(reaction, user):
 			
 			return False
 		
-		#参加者のミュート解除
-		if reaction.emoji == "🔈":
-			#リアクション初期化
-			async for user in reaction.users():
-				if user.bot == False:
-					await reaction.remove(user)
-			
-			# メンバーリストを取得
-			state = user.voice # コマンド実行者のVCステータスを取得
-			if state is None: 
-				return False
 
-			members = state.channel.members
-			for member in members:
-
-				if member.nick != None and "()" in member.nick:
-					continue
-				elif member.voice.self_mute == True:
-					continue
-				elif member.voice.mute == False:
-					await member.edit(mute=True) # マイクミュート
-				elif member.voice.mute == True and member.voice.deaf == True:				
-					await member.edit(mute=False) # マイクミュート解除
-					await member.edit(deafen=False) # スピーカーミュート解除
-
-
-		#参加者のミュート
-		if reaction.emoji == "🔇":
-			#リアクション初期化
-			async for user in reaction.users():
-				if user.bot == False:
-					await reaction.remove(user)
-
-			# メンバーリストを取得
-			state = user.voice # コマンド実行者のVCステータスを取得
-			if state is None: 
-				return False
-
-			members = state.channel.members
-			for member in members:
-				if member.nick != None and "()" in member.nick:
-					continue
-				elif member.voice.self_mute == True:
-					continue
-				elif member.voice.mute == True and member.voice.deaf == False:
-					await member.edit(mute=False) # マイクミュート解除
-				else:
-					await member.edit(mute=True) # マイクミュート
-					await member.edit(deafen=True) # スピーカーミュート
-
-		#参加者のミュート解除
-		if reaction.emoji == "🔚":
-			#リアクション初期化
-			async for user in reaction.users():
-				if user.bot == False:
-					await reaction.remove(user)
-
-			# メンバーリストを取得
-			state = user.voice # コマンド実行者のVCステータスを取得
-			if state is None: 
-				return False
-			members = state.channel.members
-
-			for member in members:	
-				await member.edit(mute=False) # チャンネルの参加者をミュート解除する
-				await member.edit(deafen=False) # チャンネルの参加者をミュート解除する
 
 		#投稿のリアクション状況を取得
 		if reaction.emoji == "↩":
