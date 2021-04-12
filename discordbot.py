@@ -130,10 +130,6 @@ async def on_reaction_add(reaction, user):
 		message = reaction.message
 	elif reaction.emoji == "⛔":
 		message = reaction.message
-	elif reaction.emoji == "🔈":
-		message = reaction.message
-	elif reaction.emoji == "🔇":
-		message = reaction.message
 	elif reaction.emoji == "🔚":
 		message = reaction.message
 	else:
@@ -181,7 +177,6 @@ async def on_reaction_add(reaction, user):
 
 
 		#投稿のリアクション状況を取得
-		if reaction.emoji == "↩":
 			i = 0;
 			imno1 = None
 			imno2 = None
