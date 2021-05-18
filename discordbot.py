@@ -19,8 +19,8 @@ async def on_command_error(ctx, error):
 
 @client.event
 async def on_member_join(member):
-	
-	print(member)
+	print('あなた')
+	print(member.guild.id)
 	if member.guild.id == 700701618370379866:
 		
 		print('あなた')
