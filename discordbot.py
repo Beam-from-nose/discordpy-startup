@@ -19,13 +19,12 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_member_join(member):
-	print('あなた')
-	print(member.guild.id)
-	if member.guild.id == 700701618370379866:
+
+	if member.guild.id == 799680125024337950:
 		
 		print('あなた')
 		# 用意したIDから Role オブジェクトを取得
-		role = member.guild.get_role(844254272598441994)
+		role = member.guild.get_role(844138721200439338)
 		# 入ってきた Member に役職を付与
 		await member.add_roles(role)
 			
