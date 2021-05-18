@@ -17,7 +17,7 @@ async def on_command_error(ctx, error):
 	error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
 	await ctx.send(error_msg)
 
-@client.event
+@bot.event
 async def on_member_join(member):
 	print('あなた')
 	print(member.guild.id)
