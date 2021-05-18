@@ -17,6 +17,14 @@ async def on_command_error(ctx, error):
 	error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
 	await ctx.send(error_msg)
 
+@client.event
+async def on_member_join(member):
+    # 用意したIDから Role オブジェクトを取得
+    role = member.guild.get_role(844138721200439338)
+    # 入ってきた Member に役職を付与
+    await member.add_roles(role)
+			
+	
 @bot.command()
 async def act(ctx):
 
