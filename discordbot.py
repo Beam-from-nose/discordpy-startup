@@ -20,6 +20,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_member_join(member):
 
+	print('あ')
 	if member.guild.id == 799680125024337950:
 		
 		print('あなた')
