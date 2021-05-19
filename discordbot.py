@@ -33,7 +33,7 @@ async def tes(ctx):
 	guild = ctx.author.guild
 	role = guild.get_role(844138721200439338)
 	
-	for target in role.members
+	for target in role.members:
 		print(target.member.id)	
 		print(target.member.name)	
 		print(target.member.joined_at)	
