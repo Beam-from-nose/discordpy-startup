@@ -39,9 +39,9 @@ async def tes(ctx):
 	for target in role.members:
 		if target.joined_at <= target:
 			if target.nick == None:
-				message = '14日テスト該当者' + target.name + target.joined_at)
+				message = '14日テスト該当者' + target.name + target.joined_at
 			else:
-				message = '14日テスト該当者' + target.nick + target.joined_at)
+				message = '14日テスト該当者' + target.nick + target.joined_at
 			await member.send(message)
 		
 		
