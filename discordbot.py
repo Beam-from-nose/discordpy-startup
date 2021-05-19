@@ -2,6 +2,7 @@ from discord.ext import commands
 import os
 import traceback
 import random
+import datetime
 
 import discord
 intents = discord.Intents.default()
@@ -33,11 +34,15 @@ async def tes(ctx):
 	guild = ctx.author.guild
 	role = guild.get_role(844138721200439338)
 	
+	date = datetime.datetime.now() - datetime.timedelta(days=14)
+
 	for target in role.members:
-		print(target.id)	
-		print(target.name)
-		
-		print(target.joined_at)	
+		if target.joined_at <= target:
+			if target.nick == None:
+				message = '14日テスト該当者' + target.name + target.joined_at)
+			else:
+				message = '14日テスト該当者' + target.nick + target.joined_at)
+			await member.send(message)
 		
 		
 @bot.command()
