@@ -36,14 +36,17 @@ async def tes(ctx):
 	
 	join_date = datetime.datetime.now() - datetime.timedelta(days=28)
 
+	await ctx.send('処理を開始します')
+	
 	for target in role.members:
 		if target.joined_at <= join_date:
 			if target.nick == None:
-				message = '28日テスト該当者' + target.name + target.joined_at.strftime('%Y/%m/%d')
+				message = target.name + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
 			else:
-				message = '28日テスト該当者' + target.nick + target.joined_at.strftime('%Y/%m/%d')
+				message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
 			await ctx.send(message)
-		
+	await ctx.send('処理を完了しました')
+	
 @bot.command()
 async def act(ctx):
 
