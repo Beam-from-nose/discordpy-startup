@@ -99,9 +99,9 @@ async def show(ctx):
 			continue
 			
 		if member.nick == None:
-			messages.append(str(i) + '-' + member.name
+			messages.append(str(i) + '-' + member.name)
 		else:
-			messages.append(str(i) + '-' + member.nick	 
+			messages.append(str(i) + '-' + member.nick)	 
 		i = i + 1
 		
 	if len(messages) == 0:
