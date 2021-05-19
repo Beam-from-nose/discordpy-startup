@@ -30,6 +30,7 @@ async def on_member_join(member):
 @bot.command()
 async def tes(ctx):
 	
+	guild = ctx.author.guild
 	role = guild.get_role(844138721200439338)
 	print(role)
 		
