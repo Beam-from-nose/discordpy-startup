@@ -39,11 +39,10 @@ async def tes(ctx):
 	for target in role.members:
 		if target.joined_at <= join_date:
 			if target.nick == None:
-				message = '14日テスト該当者' + target.name + target.joined_at
+				message = '14日テスト該当者' + target.name + target.joined_at.strftime('%Y/%m/%d')
 			else:
-				message = '14日テスト該当者' + target.nick + target.joined_at
+				message = '14日テスト該当者' + target.nick + target.joined_at.strftime('%Y/%m/%d')
 			await member.send(message)
-		
 		
 @bot.command()
 async def act(ctx):
