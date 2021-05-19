@@ -34,10 +34,10 @@ async def tes(ctx):
 	guild = ctx.author.guild
 	role = guild.get_role(844138721200439338)
 	
-	date = datetime.datetime.now() - datetime.timedelta(days=14)
+	join_date = datetime.datetime.now() - datetime.timedelta(days=14)
 
 	for target in role.members:
-		if target.joined_at <= target:
+		if target.joined_at <= join_date:
 			if target.nick == None:
 				message = '14日テスト該当者' + target.name + target.joined_at
 			else:
