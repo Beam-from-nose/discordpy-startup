@@ -42,7 +42,7 @@ async def tes(ctx):
 				message = '14日テスト該当者' + target.name + target.joined_at.strftime('%Y/%m/%d')
 			else:
 				message = '14日テスト該当者' + target.nick + target.joined_at.strftime('%Y/%m/%d')
-			await member.send(message)
+			await ctx.send(message)
 		
 @bot.command()
 async def act(ctx):
