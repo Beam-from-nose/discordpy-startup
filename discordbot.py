@@ -32,7 +32,7 @@ async def tes(ctx):
 	
 	guild = ctx.author.guild
 	role = guild.get_role(844138721200439338)
-	print(role)
+	print(role.members)
 		
 		
 @bot.command()
