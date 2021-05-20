@@ -22,7 +22,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_message(message):
 	
-	if message.channel.id == 801807475208224798
+	if message.channel.id == 801807475208224798:
 			
 		target = message.author
 		join_date = datetime.datetime.now() - datetime.timedelta(days=28)
