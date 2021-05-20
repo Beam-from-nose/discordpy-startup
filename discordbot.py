@@ -68,6 +68,7 @@ async def SendMessage():
 @tasks.loop(seconds=30)
 async def time_check():
 	print('test')
+loop.start()
 
 @bot.command()
 async def act(ctx):
