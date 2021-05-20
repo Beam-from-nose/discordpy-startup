@@ -58,8 +58,8 @@ async def tes(ctx):
 
 # 指定時間に走る処理
 async def SendMessage():
-    channel = client.get_channel(844220827369209857)
-    await channel.send('/tes')
+	channel = client.get_channel(844220827369209857)
+	await channel.send('/tes')
 
 # 30秒に一回ループ
 @tasks.loop(seconds=30)
