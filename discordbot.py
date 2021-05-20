@@ -42,7 +42,7 @@ async def tes(ctx):
 	
 	join_date = datetime.datetime.now() - datetime.timedelta(days=28)
 
-	tdatetime = datetime.now()
+	tdatetime = datetime.datetime.now()
 	tstr = tdatetime.strftime('%Y/%m/%d')
 	
 	await ctx.send('処理を開始します(' + tstr + ')')
