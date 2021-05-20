@@ -19,16 +19,11 @@ async def on_command_error(ctx, error):
 	error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
 	await ctx.send(error_msg)
 
-@bot.event
-async def on_member_join(member):
-
-	if member.guild.id == 799680125024337950:
-		time.sleep(610)
 		
 		# 用意したIDから Role オブジェクトを取得
-		role = member.guild.get_role(844138721200439338)
+		#role = member.guild.get_role(844138721200439338)
 		# 入ってきた Member に役職を付与
-		await member.add_roles(role)
+		#await member.add_roles(role)
 			
 @bot.command()
 async def tes(ctx):
@@ -134,7 +129,7 @@ async def show(ctx):
 	
 
 @bot.event
-async def on_reaction_add(reaction, user):
+async def on_raw_reaction_add(reaction, user):
 	
 	#スタート以外はスルー
 	if reaction.emoji == "▶":
