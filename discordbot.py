@@ -66,7 +66,7 @@ async def SendMessage():
 
 # 30秒に一回ループ
 @tasks.loop(seconds=30)
-async def time_check():
+async def loop():
 	print('test')
 loop.start()
 
