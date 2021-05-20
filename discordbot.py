@@ -27,7 +27,7 @@ async def on_message(message):
 		target = message.author
 		join_date = datetime.datetime.now() - datetime.timedelta(days=28)
 		
-		if target.joined_at <= join_date:
+		if join_date <= target.joined_at:
 			role = message.guild.get_role(844138721200439338)
 			# 入ってきた Member に役職を付与
 			await target.add_roles(role)
