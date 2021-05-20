@@ -58,16 +58,22 @@ async def tes(ctx):
 				message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
 			await ctx.send(message)
 	await ctx.send('処理を完了しました')
+	
+	command = ctx.message
+		
+	await command.delete()
+	
 
 # 指定時間に走る処理
 async def SendMessage():
 	channel = client.get_channel(844220827369209857)
 	await channel.send('/tes')
 
-# 30秒に一回ループ
-@tasks.loop(seconds=30)
+# 300秒に一回ループ
+@tasks.loop(seconds=300)
 async def loop():
-	print('test')
+	 await SendMessage()
+		
 loop.start()
 
 @bot.command()
