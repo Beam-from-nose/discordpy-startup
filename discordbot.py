@@ -133,7 +133,11 @@ async def show(ctx):
 
 @bot.event
 async def on_reaction_add(reaction, user):
-
+	
+	#初心者権限付与
+	test = reaction.message
+	print(test.channel.id)
+	
 	#スタート以外はスルー
 	if reaction.emoji == "▶":
 		message = reaction.message
