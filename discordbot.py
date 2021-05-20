@@ -32,6 +32,8 @@ async def on_message(message):
 			# 入ってきた Member に役職を付与
 			await target.add_roles(role)
 
+	await bot.process_commands(message)
+
 @bot.command()
 async def tes(ctx):
 	
