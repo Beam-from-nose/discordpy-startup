@@ -65,8 +65,8 @@ async def SendMessage():
 @tasks.loop(seconds=30)
 async def time_check():
 	await SendMessage()
-        await asyncio.sleep(3600)
-	
+	await asyncio.sleep(3600)
+
 @bot.command()
 async def act(ctx):
 
