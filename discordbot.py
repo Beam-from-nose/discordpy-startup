@@ -19,12 +19,19 @@ async def on_command_error(ctx, error):
 	error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
 	await ctx.send(error_msg)
 
-		
-		# 用意したIDから Role オブジェクトを取得
-		#role = member.guild.get_role(844138721200439338)
-		# 入ってきた Member に役職を付与
-		#await member.add_roles(role)
+	@bot.event
+async def on_message(message):
+	
+	if message.channel.id = 801807475208224798
 			
+		target = message.author
+		join_date = datetime.datetime.now() - datetime.timedelta(days=28)
+		
+		if target.joined_at <= join_date:
+			role = message.guild.get_role(844138721200439338)
+			# 入ってきた Member に役職を付与
+			await target.add_roles(role)
+
 @bot.command()
 async def tes(ctx):
 	
@@ -129,7 +136,7 @@ async def show(ctx):
 	
 
 @bot.event
-async def on_raw_reaction_add(reaction, user):
+async def on_reaction_add(reaction, user):
 	
 	#スタート以外はスルー
 	if reaction.emoji == "▶":
