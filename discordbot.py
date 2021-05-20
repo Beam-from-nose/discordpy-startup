@@ -6,6 +6,9 @@ import datetime
 import time
 
 import discord
+
+from discord.ext import tasks
+
 intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
