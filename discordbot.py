@@ -65,8 +65,8 @@ async def tes(ctx):
 @tasks.loop(seconds=30)
 async def loop():	
 
-	await client.wait_until_ready()
-	guild = client.get_guild(799680125024337950)
+	await bot.wait_until_ready()
+	guild = bot.get_guild(799680125024337950)
 	print(guild)
 	channel = guild.get_channel(844220827369209857)
 	print(channel)
