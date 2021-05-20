@@ -62,13 +62,15 @@ async def tes(ctx):
 	await ctx.message.delete()
 
 # 300秒に一回ループ
-#@tasks.loop(seconds=300)
-#async def loop():	
-#	client = discord.Client()
-#	guild = client.get_guild(799680125024337950)
-#	channel = guild.get_channel(844220827369209857)
-#	await channel.send('/tes')
-#loop.start()
+@tasks.loop(seconds=30)
+async def loop():	
+
+	guild = bot.client.get_guild(799680125024337950)
+	print(guild)
+	channel = guild.get_channel(844220827369209857)
+	print(channel)
+	#await channel.send('/tes')
+loop.start()
 
 @bot.command()
 async def act(ctx):
