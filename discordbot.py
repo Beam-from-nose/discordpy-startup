@@ -67,8 +67,7 @@ async def SendMessage():
 # 30秒に一回ループ
 @tasks.loop(seconds=30)
 async def time_check():
-	await SendMessage()
-	await asyncio.sleep(3600)
+	print('test')
 
 @bot.command()
 async def act(ctx):
