@@ -40,7 +40,10 @@ async def tes(ctx):
 	
 	join_date = datetime.datetime.now() - datetime.timedelta(days=28)
 
-	await ctx.send('処理を開始します')
+	tdatetime = datetime.now()
+	tstr = tdatetime.strftime('%Y/%m/%d')
+	
+	await ctx.send('処理を開始します(' + tstr + ')')
 	
 	for target in role.members:
 		if target.joined_at <= join_date:
