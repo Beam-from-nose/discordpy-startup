@@ -62,15 +62,14 @@ async def tes(ctx):
 	await ctx.message.delete()
 
 # 300秒に一回ループ
-@tasks.loop(seconds=30)
+@tasks.loop(seconds=10800)
 async def loop():	
 
 	await bot.wait_until_ready()
 	guild = bot.get_guild(799680125024337950)
-	print(guild)
 	channel = guild.get_channel(844220827369209857)
-	print(channel)
-	#await channel.send('/tes')
+	await channel.send('3時間に一回つぶやくテスト')
+	
 loop.start()
 
 @bot.command()
