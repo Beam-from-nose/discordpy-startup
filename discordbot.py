@@ -52,23 +52,30 @@ async def tes(ctx):
 	
 	for target in role.members:
 		if target.joined_at <= join_date:
+			
+			await target.remove_roles(role)
+			
 			if target.nick == None:
 				message = target.name + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
 			else:
 				message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
 			await ctx.send(message)
+
 	await ctx.send('処理を完了しました')
 			
 	await ctx.message.delete()
 
 # 300秒に一回ループ
-#@tasks.loop(seconds=10800)
-#async def loop():	
+@tasks.loop(seconds=3600)
+async def loop():	
 
-#	await bot.wait_until_ready()
-#	guild = bot.get_guild(799680125024337950)
-#	channel = guild.get_channel(844220827369209857)
-#	await channel.send('3時間に一回つぶやくテスト')
+	await bot.wait_until_ready()
+	guild = bot.get_guild(799680125024337950)
+	channel = guild.get_channel(844220827369209857)
+	
+	now = datetime.datetime.now().strftime('%H')
+	if now == '07':
+		await channel.send('/tes')
 	
 #loop.start()
 
