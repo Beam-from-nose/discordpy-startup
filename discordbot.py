@@ -72,12 +72,12 @@ async def loop():
 	await bot.wait_until_ready()
 	guild = bot.get_guild(799680125024337950)
 	channel = guild.get_channel(844220827369209857)
-	
+
 	now = datetime.datetime.now().strftime('%H')
-	if now == '07':
+	if now == '08':
 		await channel.send('/tes')
-	
-#loop.start()
+
+loop.start()
 
 @bot.command()
 async def act(ctx):
