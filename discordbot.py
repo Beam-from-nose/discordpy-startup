@@ -52,7 +52,15 @@ async def tes(ctx):
 	
 	for target in role.members:
 		if target.joined_at <= join_date:
-			print(target)
+			await target.remove_roles(role)
+			
+			if target.nick == None:
+				message = target.name + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
+			else:
+				message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
+			await ctx.send(message)
+
+	await ctx.send('処理を完了しました')
 
 			
 	await ctx.message.delete()
@@ -66,7 +74,7 @@ async def loop():
 	channel = guild.get_channel(844220827369209857)
 
 	now = datetime.datetime.now().strftime('%H')
-	if now == '08':
+	if now == '01':
 		await channel.send('/tes')
 
 loop.start()
