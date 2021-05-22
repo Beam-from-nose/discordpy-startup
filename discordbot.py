@@ -75,7 +75,26 @@ async def loop():
 
 	now = datetime.datetime.now().strftime('%H')
 	if now == '01':
-		await channel.send('/tes')
+		role = guild.get_role(844138721200439338)
+
+		join_date = datetime.datetime.now() - datetime.timedelta(days=28)
+
+		tdatetime = datetime.datetime.now()
+		tstr = tdatetime.strftime('%Y/%m/%d')
+
+		await channel.send('処理を開始します(' + tstr + ')')
+
+		for target in role.members:
+			if target.joined_at <= join_date:
+				await target.remove_roles(role)
+
+				if target.nick == None:
+					message = target.name + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
+				else:
+					message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
+				await ctx.send(message)
+
+		await channel.send('処理を完了しました')
 
 loop.start()
 
