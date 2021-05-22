@@ -52,16 +52,8 @@ async def tes(ctx):
 	
 	for target in role.members:
 		if target.joined_at <= join_date:
-			
-			await target.remove_roles(844138721200439338)
-			
-			if target.nick == None:
-				message = target.name + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
-			else:
-				message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
-			await ctx.send(message)
+			print(target)
 
-	await ctx.send('処理を完了しました')
 			
 	await ctx.message.delete()
 
