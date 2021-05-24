@@ -28,7 +28,7 @@ async def on_message(message):
 	if message.channel.id == 801807475208224798:
 			
 		target = message.author
-		join_date = datetime.datetime.now() - datetime.timedelta(days=228)
+		join_date = datetime.datetime.now() - datetime.timedelta(days=28)
 		
 		if join_date <= target.joined_at:
 			role = message.guild.get_role(844138721200439338)
