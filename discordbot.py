@@ -92,7 +92,7 @@ async def loop():
 					message = target.name + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
 				else:
 					message = target.nick + 'さんのロールを外しました 参加日：' + target.joined_at.strftime('%Y/%m/%d')
-				await ctx.send(message)
+				await channel.send(message)
 
 		await channel.send('処理を完了しました')
 
